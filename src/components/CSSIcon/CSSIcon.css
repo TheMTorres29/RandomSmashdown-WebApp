@@ -31,3 +31,27 @@
       opacity: 100%;
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .css-name {
+        font-size: 1.1vw;
+    }
+}
+@media screen and (max-width: 960px) {
+    .css-name {
+        font-size: 1.4vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .css-name {
+        font-size: 1.7vw;
+    }
+}
+@media screen and (max-width: 430px) {
+    .cssicon-container {
+        width: 70px;
+    }
+    .css-name {
+        font-size: 2vw;
+    }
+}

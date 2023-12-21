@@ -14,6 +14,8 @@
     transition: transform .1s;
     padding: 0;
     filter: grayscale();
+    outline: none;
+    border: none;
 }
 
 .random-btn:hover {
@@ -21,6 +23,8 @@
     background-color: #616060;
     filter: none;
     background: none;
+    outline: none;
+    border: none;
 }
 
 .random-btn:focus {
@@ -60,9 +64,33 @@
 .player-fighter-name {
     width: 100%;
     margin: 0;
-    font-size: 1.2vw;
+    font-size: 1.4vw;
 }
 
 .player-fighter-icon {
-    width: 40%;
+    width: 55%;
+}
+
+@media screen and (max-width: 1200px) {
+    .player-fighter-name {
+        font-size: 2vw;
+    }
+}
+@media screen and (max-width: 960px) {
+    .player-fighter-name {
+        font-size: 2.6vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .player-fighter-name {
+        font-size: 3.2vw;
+    }
+    .player-fighter-icon {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 430px) {
+    .player-fighter-name {
+        font-size: 5.5vw;
+    }
 }

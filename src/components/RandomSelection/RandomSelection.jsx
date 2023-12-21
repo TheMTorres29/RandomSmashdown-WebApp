@@ -11,10 +11,15 @@ const RandomSelection = ({fighters}) => {
         setRandomFighter(selectedRandomFighter)
     }
 
-    const RemoveFighter = () => {
-        console.log(randomFighter.key)
+    const RemoveFighter = ({fighters}) => {
+        console.log({fighters})
+        console.log(randomFighter.name)
         // Delete from list now...
-        
+        let fighterName = randomFighter.name
+        const filteredList = {fighters}.filter(function (fighterNameList) {
+            return fighterNameList !== fighterName;
+        })
+        console.log({fighters})
     }
     
   return (
@@ -31,7 +36,7 @@ const RandomSelection = ({fighters}) => {
                 <img src={randomFighter.icon} alt="" className='player-fighter-icon'/>
             </div>
         </div>
-        <button onClick={RemoveFighter}>Continue</button>
+        <button onClick={() => RemoveFighter({fighters})}>Continue</button>
     </div>
   )
 }
