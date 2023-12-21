@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './RandomSelection.css'
 import qmark from '../../assets/images/marioqmark.png'
 
-const RandomSelection = ({fighters}) => {
+const RandomSelection = ({fighters, updateList}) => {
     const [randomFighter, setRandomFighter] = useState(0)
 
     const GetRandomFighter = () => {
@@ -12,15 +12,18 @@ const RandomSelection = ({fighters}) => {
     }
 
     const RemoveFighter = ({fighters}) => {
-        console.log({fighters})
         console.log(randomFighter.name)
         // Delete from list now...
-        let fighterName = randomFighter.name
-        const filteredList = {fighters}.filter(function (fighterNameList) {
-            return fighterNameList !== fighterName;
-        })
+        let listIndex = randomFighter.id-1
+        console.log(randomFighter.id)
+        console.log(listIndex)
+        // updateList = fighters.splice(listIndex, 1)
         console.log({fighters})
     }
+
+    useEffect(() => {
+
+    }, [{fighters}]);
     
   return (
     <div className='random-selection-container'>
