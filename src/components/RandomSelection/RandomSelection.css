@@ -1,0 +1,68 @@
+.random-selection-container {
+    /* border: 2px solid green; */
+    width: 100% auto;
+    padding: 1rem 2rem 1rem 2rem;
+
+}
+
+.random-btn-container {
+    padding-bottom: 1%;
+}
+
+.random-btn {
+    width: 100px auto;
+    transition: transform .1s;
+    padding: 0;
+    filter: grayscale();
+}
+
+.random-btn:hover {
+    transform:scale(1.1);
+    background-color: #616060;
+    filter: none;
+    background: none;
+}
+
+.random-btn:focus {
+    outline: none;
+    border: none;
+}
+
+.qmark {
+   max-width: 150px; 
+}
+
+.player-container {
+    margin: 0 auto;
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-title {
+    margin: 0;
+    border-bottom: 2px solid white;
+    width: 100% auto;
+}
+
+.player-fighter-container {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border: 1px solid white;
+    width: 100% auto;
+    height: 80%;
+}
+
+.player-fighter-name {
+    width: 100%;
+    margin: 0;
+    font-size: 1.2vw;
+}
+
+.player-fighter-icon {
+    width: 40%;
+}

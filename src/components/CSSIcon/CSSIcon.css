@@ -1,0 +1,33 @@
+.cssicon-container {
+    width: 100px;
+    margin: 0 auto;
+    border: solid 1px white;
+    border-radius: 5px;
+    transition: transform .1s;
+    animation: slideIn 1s ease-in;
+}
+
+.cssicon-container:hover {
+    transform: scale(1.06);
+}
+
+.css-name {
+    margin: 0;
+    width: 100% auto;
+    font-size: 0.8vw;
+}
+
+.css-icon {
+    width: fit-content;
+}
+
+@keyframes slideIn {
+    0% {
+      transform: translateX(-80em);
+      opacity: 0%;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 100%;
+    }
+}

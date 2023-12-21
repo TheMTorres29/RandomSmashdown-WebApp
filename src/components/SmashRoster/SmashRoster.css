@@ -1,0 +1,16 @@
+.smashroster-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100% auto;
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 5px;
+    box-shadow: inset 0 -2.5em 6em #424242,
+    0 0 0 2px #010101,
+    0.3em 0.3em 1em #757575;
+}
+
+.currentroster-title {
+    padding-bottom: 1%;
+    margin: 0;
+}
