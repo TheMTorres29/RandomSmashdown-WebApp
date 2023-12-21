@@ -1,8 +1,9 @@
-# React + Vite
+# Random Smashdown Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I wanted to create a version of my Python Random Smashdown Selector program using React + Vite so people can use it on their phone or computer with a nice looking UI
 
-Currently, two official plugins are available:
+The purpose/inspiration for this project is to randomly select a fighter, from the game Super Smash Bros Ultimate for Nintendo Switch, for the player.
+Yes the game has a random feature but I like to pick which color I want to use. This allows me to do so lol
+The roster will also decrease in size as the selected fighter will be removed from the fighter list to ensure you dont get a duplicate. Similar to the Smashdown mode in the game.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Still a W.I.P. so stay tuned for updates!
