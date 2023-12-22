@@ -103,23 +103,30 @@ const SmashRoster = () => {
         setRandomFighter(selectedRandomFighter)
 
         // Delete Fighter from list
-        let listIndex = randomFighter.id-1
+        let listIndex = randomFighter.id=1
         let tmpList = fighters;
         tmpList = (tmpList => tmpList.filter(fighters => fighters !== randomFighter))
         setFighters(tmpList)
+        // console.log(tmpList.length)
+        if (tmpList.length == 1) {
+            document.getElementsByClassName("random-btn").style.visibility='hidden';
+        }
+
+        
     }
 
-    const RemoveFighter = () => {
-        // console.log(randomFighter.name)
-        // Delete from list now...
-        let listIndex = randomFighter.id-1
-        // console.log(randomFighter.id)
-        // console.log(listIndex)
-        let tmpList = fighters;
-        tmpList = (tmpList => tmpList.filter(fighters => fighters !== randomFighter))
-        setFighters(tmpList)
-        // console.log(fighters)
-    }
+    // Debug:
+    // const RemoveFighter = () => {
+    //     console.log(randomFighter.name)
+    //     Delete from list now...
+    //     let listIndex = randomFighter.id-1
+    //     console.log(randomFighter.id)
+    //     console.log(listIndex)
+    //     let tmpList = fighters;
+    //     tmpList = (tmpList => tmpList.filter(fighters => fighters !== randomFighter))
+    //     setFighters(tmpList)
+    //     console.log(fighters)
+    // }
 
   return (
     <>
@@ -131,7 +138,7 @@ const SmashRoster = () => {
                 </button>
             </div>
             <div className="player-container">
-                <h2 className="player-title">Player One</h2>
+                <h2 className="player-title">Fighter</h2>
                 <div className="player-fighter-container">
                     <h2 className='player-fighter-name'>{randomFighter.name}</h2>
                     <img src={randomFighter.icon} alt="" className='player-fighter-icon'/>
