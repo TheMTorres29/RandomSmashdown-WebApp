@@ -106,13 +106,13 @@ const SmashRoster = () => {
     const RemoveFighter = () => {
         console.log(randomFighter.name)
         // Delete from list now...
-        let listIndex = randomFighter.id-1
-        console.log(randomFighter.id)
-        console.log(listIndex)
-        let tmpList = fighters;
-        tmpList = fighters.splice(listIndex, 1)
-        setFighters(tmpList)
-        console.log(fighters)
+        // let listIndex = randomFighter.id-1
+        // console.log(randomFighter.id)
+        // console.log(listIndex)
+        // let tmpList = fighters;
+        // tmpList = fighters.splice(listIndex, 1)
+        // setFighters(tmpList)
+        // console.log(fighters)
     }
 
   return (
