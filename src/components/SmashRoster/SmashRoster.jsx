@@ -101,17 +101,23 @@ const SmashRoster = () => {
         let selectedRandomFighter = fighters[Math.floor(Math.random() * fighters.length)]
         console.log(selectedRandomFighter)
         setRandomFighter(selectedRandomFighter)
+
+        // Delete Fighter from list
+        let listIndex = randomFighter.id-1
+        let tmpList = fighters;
+        tmpList = (tmpList => tmpList.filter(fighters => fighters !== randomFighter))
+        setFighters(tmpList)
     }
 
     const RemoveFighter = () => {
-        console.log(randomFighter.name)
+        // console.log(randomFighter.name)
         // Delete from list now...
-        // let listIndex = randomFighter.id-1
+        let listIndex = randomFighter.id-1
         // console.log(randomFighter.id)
         // console.log(listIndex)
-        // let tmpList = fighters;
-        // tmpList = fighters.splice(listIndex, 1)
-        // setFighters(tmpList)
+        let tmpList = fighters;
+        tmpList = (tmpList => tmpList.filter(fighters => fighters !== randomFighter))
+        setFighters(tmpList)
         // console.log(fighters)
     }
 
@@ -131,7 +137,8 @@ const SmashRoster = () => {
                     <img src={randomFighter.icon} alt="" className='player-fighter-icon'/>
                 </div>
             </div>
-            <button onClick={() => RemoveFighter(fighters)}>Continue</button>
+            {/* Debug for RemovingFighter function */}
+            {/* <button onClick={() => RemoveFighter(fighters)}>Continue</button> */}
         </div>
         {/* CSS */}
         <h2 className="currentroster-title">Current Roster</h2>
@@ -144,7 +151,6 @@ const SmashRoster = () => {
                         name = {fighter.name}
                         icon = {fighter.icon}
                     />
-                    
                 )
             })}
         </div>
