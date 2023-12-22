@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './SmashRoster.css'
 import CSSIcon from '../CSSIcon/CSSIcon'
-import RandomSelection from '../RandomSelection/RandomSelection'
+import qmark from '../../assets/images/marioqmark.png'
     
 const SmashRoster = () => {
     //  Fighter List
@@ -95,17 +95,49 @@ const SmashRoster = () => {
             {id:86,name:'Sora',icon:'https://www.ssbwiki.com/images/0/0e/SoraHeadSSBU.png'}
         ]
     )
+    const [randomFighter, setRandomFighter] = useState(0)
 
-    const handleFighterState = (newList) => {
-        setFighters(newList);
+    const GetRandomFighter = () => {
+        let selectedRandomFighter = fighters[Math.floor(Math.random() * fighters.length)]
+        console.log(selectedRandomFighter)
+        setRandomFighter(selectedRandomFighter)
     }
-    
+
+    const RemoveFighter = () => {
+        console.log(randomFighter.name)
+        // Delete from list now...
+        let listIndex = randomFighter.id-1
+        console.log(randomFighter.id)
+        console.log(listIndex)
+        let tmpList = fighters;
+        tmpList = fighters.splice(listIndex, 1)
+        setFighters(tmpList)
+        console.log(fighters)
+    }
+
   return (
     <>
-        <RandomSelection fighters={fighters} updateList={handleFighterState}/>
+        {/* Random Selector */}
+        <div className='random-selection-container'>
+            <div className="random-btn-container">
+                <button className='random-btn' onClick={GetRandomFighter}>
+                    <img src={qmark} alt="" className='qmark'/>
+                </button>
+            </div>
+            <div className="player-container">
+                <h2 className="player-title">Player One</h2>
+                <div className="player-fighter-container">
+                    <h2 className='player-fighter-name'>{randomFighter.name}</h2>
+                    <img src={randomFighter.icon} alt="" className='player-fighter-icon'/>
+                </div>
+            </div>
+            <button onClick={() => RemoveFighter(fighters)}>Continue</button>
+        </div>
+        {/* CSS */}
         <h2 className="currentroster-title">Current Roster</h2>
         <div className='smashroster-container'>
             {fighters.map((fighter) => {
+                console.log('made a box')
                 return (
                     <CSSIcon
                         key = {fighter.id}

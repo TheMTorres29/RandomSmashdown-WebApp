@@ -15,15 +15,103 @@
     margin: 0;
 }
 
-@media screen and (max-width: 1200px) {
+.random-selection-container {
+    /* border: 2px solid green; */
+    width: 100% auto;
+    padding: 1rem 2rem 1rem 2rem;
 
+}
+
+.random-btn-container {
+    padding-bottom: 1%;
+}
+
+.random-btn {
+    width: 100px auto;
+    transition: transform .1s;
+    padding: 0;
+    filter: grayscale();
+    outline: none;
+    border: none;
+}
+
+.random-btn:hover {
+    transform:scale(1.1);
+    background-color: #616060;
+    filter: none;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.random-btn:focus {
+    outline: none;
+    border: none;
+}
+
+.qmark {
+   max-width: 150px; 
+}
+
+.player-container {
+    margin: 0 auto;
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-title {
+    margin: 0;
+    border-bottom: 2px solid white;
+    width: 100% auto;
+}
+
+.player-fighter-container {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border: 1px solid white;
+    width: 100% auto;
+    height: 80%;
+}
+
+.player-fighter-name {
+    width: 100%;
+    margin: 0;
+    font-size: 1.4vw;
+}
+
+.player-fighter-icon {
+    width: 55%;
+}
+
+@media screen and (max-width: 1200px) {
+    .player-fighter-name {
+        font-size: 2vw;
+    }
 }
 @media screen and (max-width: 960px) {
-
+    .player-fighter-name {
+        font-size: 2.6vw;
+    }
 }
 @media screen and (max-width: 768px) {
-
+    .player-fighter-name {
+        font-size: 3.2vw;
+    }
+    .player-fighter-icon {
+        width: 50%;
+    }
 }
 @media screen and (max-width: 430px) {
+    .player-fighter-name {
+        font-size: 5.5vw;
+    }
 
+    .random-btn:hover {
+        transform:scale(1.05);
+    }
 }
