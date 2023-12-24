@@ -98,6 +98,7 @@ const SmashRoster = () => {
     const [randomFighter, setRandomFighter] = useState(0)
 
     const GetRandomFighter = () => {
+        let len = fighters.length
         let selectedRandomFighter = fighters[Math.floor(Math.random() * fighters.length)]
         console.log(selectedRandomFighter)
         setRandomFighter(selectedRandomFighter)
@@ -107,11 +108,14 @@ const SmashRoster = () => {
         let tmpList = fighters;
         tmpList = (tmpList => tmpList.filter(fighters => fighters !== randomFighter))
         setFighters(tmpList)
-        // console.log(tmpList.length)
-        if (tmpList.length == 1) {
-            document.getElementsByClassName("random-btn").style.visibility='hidden';
-        }
+        console.log(len)
 
+        if (len == 1) {
+            document.getElementById("random-btn-id").style.visibility='hidden';
+            document.getElementById("current-roster-id").innerText='Complete!';
+            // document.getElementById("current-roster-id").style.visibility='hidden';
+            document.getElementById("smashroster-id").style.visibility='hidden';
+        }
         
     }
 
@@ -133,7 +137,7 @@ const SmashRoster = () => {
         {/* Random Selector */}
         <div className='random-selection-container'>
             <div className="random-btn-container">
-                <button className='random-btn' onClick={GetRandomFighter}>
+                <button className='random-btn' id='random-btn-id' onClick={GetRandomFighter}>
                     <img src={qmark} alt="" className='qmark'/>
                 </button>
             </div>
@@ -147,9 +151,9 @@ const SmashRoster = () => {
             {/* Debug for RemovingFighter function */}
             {/* <button onClick={() => RemoveFighter(fighters)}>Continue</button> */}
         </div>
-        {/* CSS */}
-        <h2 className="currentroster-title">Current Roster</h2>
-        <div className='smashroster-container'>
+        {/* CharSelectScreen */}
+        <h2 className="currentroster-title" id='current-roster-id'>Current Roster</h2>
+        <div className='smashroster-container' id='smashroster-id'>
             {fighters.map((fighter) => {
                 console.log('made a box')
                 return (

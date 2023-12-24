@@ -17,7 +17,7 @@
 
 .random-selection-container {
     width: 100% auto;
-    padding: 1rem 2rem 1rem 2rem;
+    /* padding: 1rem 2rem 1rem 2rem; */
 }
 
 .random-btn-container {
@@ -55,8 +55,8 @@
     margin: 0 auto;
     border: 2px solid white;
     border-radius: 5px;
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     display: flex;
     flex-direction: column;
 }
@@ -79,7 +79,7 @@
 .player-fighter-name {
     width: 100%;
     margin: 0;
-    font-size: 1.4vw;
+    font-size: 1.3vw;
 }
 
 .player-fighter-icon {
@@ -88,17 +88,17 @@
 
 @media screen and (max-width: 1200px) {
     .player-fighter-name {
-        font-size: 2vw;
+        font-size: 1.8vw;
     }
 }
 @media screen and (max-width: 960px) {
     .player-fighter-name {
-        font-size: 2.6vw;
+        font-size: 2.3vw;
     }
 }
 @media screen and (max-width: 768px) {
     .player-fighter-name {
-        font-size: 3.2vw;
+        font-size: 2.8vw;
     }
     .player-fighter-icon {
         width: 50%;
@@ -106,7 +106,7 @@
 }
 @media screen and (max-width: 430px) {
     .player-fighter-name {
-        font-size: 5.5vw;
+        font-size: 5.2vw;
     }
 
     .random-btn:hover {
