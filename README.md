@@ -7,3 +7,5 @@ Yes the game has a random feature but I like to pick which color I want to use. 
 The roster will also decrease in size as the selected fighter will be removed from the fighter list to ensure you dont get a duplicate. Similar to the Smashdown mode in the game.
 
 Still a W.I.P. so stay tuned for updates!
+
+https://www.random-smashdown.site/
