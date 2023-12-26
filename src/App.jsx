@@ -8,7 +8,7 @@ function App() {
     <>
       <div className='app-title-container'>
         <h1 className='app-title'>Random Smashdown</h1>
-        <p>[ refresh to restart ]</p>
+        <p className='app-subtitle'>[ refresh to restart ]</p>
         <p></p>
       </div>
       <SmashRoster />

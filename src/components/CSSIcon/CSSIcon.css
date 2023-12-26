@@ -14,7 +14,7 @@
 .css-name {
     margin: 0;
     width: 100% auto;
-    font-size: 0.8vw;
+    font-size: 0.9vw;
 }
 
 .css-icon {
@@ -34,17 +34,17 @@
 
 @media screen and (max-width: 1200px) {
     .css-name {
-        font-size: 1.1vw;
+        font-size: 1.2vw;
     }
 }
 @media screen and (max-width: 960px) {
     .css-name {
-        font-size: 1.4vw;
+        font-size: 1.5vw;
     }
 }
 @media screen and (max-width: 768px) {
     .css-name {
-        font-size: 1.7vw;
+        font-size: 1.8vw;
     }
 }
 @media screen and (max-width: 430px) {
@@ -52,6 +52,6 @@
         width: 70px;
     }
     .css-name {
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
 }
