@@ -37,7 +37,7 @@ const SmashRoster = () => {
             {id:28,name:'Roy',icon:'https://www.ssbwiki.com/images/e/ed/RoyHeadSSBU.png'},
             {id:29,name:'Chrom',icon:'https://www.ssbwiki.com/images/2/25/ChromHeadSSBU.png'},
             {id:30,name:'Mr. Game & Watch',icon:'https://www.ssbwiki.com/images/6/6b/MrGame%26WatchHeadSSBU.png'},
-            {id:31,name:'MetaKnight',icon:'https://www.ssbwiki.com/images/d/de/MetaKnightHeadSSBU.png'},
+            {id:31,name:'Meta Knight',icon:'https://www.ssbwiki.com/images/d/de/MetaKnightHeadSSBU.png'},
             {id:32,name:'Pit',icon:'https://www.ssbwiki.com/images/a/aa/PitHeadSSBU.png'},
             {id:33,name:'Dark Pit',icon:'https://www.ssbwiki.com/images/e/ed/DarkPitHeadSSBU.png'},
             {id:34,name:'Zero Suit Samus',icon:'https://www.ssbwiki.com/images/7/71/ZeroSuitSamusHeadSSBU.png'},
@@ -56,9 +56,9 @@ const SmashRoster = () => {
             {id:47,name:'Wolf',icon:'https://www.ssbwiki.com/images/e/e8/WolfHeadSSBU.png'},
             {id:48,name:'Villager',icon:'https://www.ssbwiki.com/images/b/b9/VillagerHeadSSBU.png'},
             {id:49,name:'Mega Man',icon:'https://www.ssbwiki.com/images/5/55/MegaManHeadSSBU.png'},
-            {id:50,name:'WiiFit',icon:'https://www.ssbwiki.com/images/8/87/WiiFitTrainerHeadSSBU.png'},
+            {id:50,name:'Wii Fit Trainer',icon:'https://www.ssbwiki.com/images/8/87/WiiFitTrainerHeadSSBU.png'},
             {id:51,name:'Rosalina',icon:'https://www.ssbwiki.com/images/e/e8/RosalinaHeadSSBU.png'},
-            {id:52,name:'LilMac',icon:'https://www.ssbwiki.com/images/1/10/LittleMacHeadSSBU.png'},
+            {id:52,name:'Little Mac',icon:'https://www.ssbwiki.com/images/1/10/LittleMacHeadSSBU.png'},
             {id:53,name:'Greninja',icon:'https://www.ssbwiki.com/images/6/65/GreninjaHeadSSBU.png'},
             {id:54,name:'Palutena',icon:'https://www.ssbwiki.com/images/a/a9/PalutenaHeadSSBU.png'},
             {id:55,name:'Pac-Man',icon:'https://www.ssbwiki.com/images/4/45/Pac-ManHeadSSBU.png'},
@@ -90,25 +90,25 @@ const SmashRoster = () => {
             {id:81,name:'Min Min',icon:'https://www.ssbwiki.com/images/d/de/MinMinHeadSSBU.png'},
             {id:82,name:'Steve',icon:'https://www.ssbwiki.com/images/1/11/SteveHeadSSBU.png'},
             {id:83,name:'Sephiroth',icon:'https://www.ssbwiki.com/images/5/5e/SephirothHeadSSBU.png'},
-            {id:84,name:'Aegis',icon:'https://www.ssbwiki.com/images/f/fc/PyraMythraHeadSSBU.png'},
+            {id:84,name:'Pyra/Mythra',icon:'https://www.ssbwiki.com/images/f/fc/PyraMythraHeadSSBU.png'},
             {id:85,name:'Kazuya',icon:'https://www.ssbwiki.com/images/6/67/KazuyaHeadSSBU.png'},
             {id:86,name:'Sora',icon:'https://www.ssbwiki.com/images/0/0e/SoraHeadSSBU.png'}
         ]
     )
     const [randomFighter, setRandomFighter] = useState(0)
+    const [noMiis, setNoMiis] = useState(false)
 
     const GetRandomFighter = () => {
         let len = fighters.length
         let selectedRandomFighter = fighters[Math.floor(Math.random() * fighters.length)]
-        console.log(selectedRandomFighter)
+        // console.log(selectedRandomFighter)
         setRandomFighter(selectedRandomFighter)
 
         // Delete Fighter from list
-        let listIndex = randomFighter.id=1
         let tmpList = fighters;
         tmpList = (tmpList => tmpList.filter(fighters => fighters !== randomFighter))
         setFighters(tmpList)
-        console.log(len)
+        // console.log(len)
 
         if (len == 1) {
             document.getElementById("random-btn-id").style.visibility='hidden';
@@ -116,6 +116,38 @@ const SmashRoster = () => {
             document.getElementById("smashroster-id").style.visibility='hidden';
         }
         
+    }
+
+    const iHateMiis = () => {
+        console.log("MiiBtn pressed")
+        let miisOff = noMiis;
+
+        
+
+        let tmpList = fighters;
+        // tmpList = (tmpList => tmpList.filter(fighters => fighters !== fighters.name, "Mii Brawler"))
+        console.log(tmpList)
+
+        miisOff = !miisOff
+        setNoMiis(miisOff)
+
+
+        if (miisOff == true) {
+            console.log("Miis Off")   
+            for (var i = 0; i < fighters.length; i++) {
+                if (tmpList[i].name == "Mii FIghter") {
+                    // Fix this stuff ;0
+                }
+            }
+            console.log(tmpList[0].name)
+            let miiFighter = tmpList []
+            tmpList = (tmpList => tmpList.filter(fighters => fighters !== miiFighter))
+        }
+        if (miisOff == false) {
+            console.log("Miis On :0")
+        }
+        
+        setFighters(tmpList)
     }
 
     // Debug:
@@ -150,7 +182,13 @@ const SmashRoster = () => {
         </div>
         {/* CharSelectScreen */}
         <h2 className="currentroster-title" id='current-roster-id'>Current Roster</h2>
-        <h3 className='currentroster-count'>Remaining: {fighters.length}</h3>
+        <div className="top-css-container">
+            <div className="mii-btn-container">
+                <button className='mii-btn' onClick={iHateMiis}></button>
+
+            </div>
+            <h3 className='currentroster-count'>Remaining: {fighters.length}</h3>
+        </div>
         <div className='smashroster-container' id='smashroster-id'>
             {fighters.map((fighter) => {
                 console.log('made a box')
