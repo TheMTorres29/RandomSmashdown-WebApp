@@ -57,7 +57,7 @@ const SmashRoster = () => {
             {id:48,name:'Villager',icon:'https://www.ssbwiki.com/images/b/b9/VillagerHeadSSBU.png'},
             {id:49,name:'Mega Man',icon:'https://www.ssbwiki.com/images/5/55/MegaManHeadSSBU.png'},
             {id:50,name:'Wii Fit Trainer',icon:'https://www.ssbwiki.com/images/8/87/WiiFitTrainerHeadSSBU.png'},
-            {id:51,name:'Rosalina',icon:'https://www.ssbwiki.com/images/e/e8/RosalinaHeadSSBU.png'},
+            {id:51,name:'Rosalina & Luma',icon:'https://www.ssbwiki.com/images/e/e8/RosalinaHeadSSBU.png'},
             {id:52,name:'Little Mac',icon:'https://www.ssbwiki.com/images/1/10/LittleMacHeadSSBU.png'},
             {id:53,name:'Greninja',icon:'https://www.ssbwiki.com/images/6/65/GreninjaHeadSSBU.png'},
             {id:54,name:'Palutena',icon:'https://www.ssbwiki.com/images/a/a9/PalutenaHeadSSBU.png'},
@@ -140,10 +140,10 @@ const SmashRoster = () => {
                 }
             }
             console.log(tmpList[0].name)
-            let miiFighter = tmpList []
+            let miiFighter = tmpList
             tmpList = (tmpList => tmpList.filter(fighters => fighters !== miiFighter))
         }
-        if (miisOff == false) {
+        else if (miisOff == false) {
             console.log("Miis On :0")
         }
         
