@@ -184,7 +184,7 @@ const SmashRoster = () => {
         <h2 className="currentroster-title" id='current-roster-id'>Current Roster</h2>
         <div className="top-css-container">
             <div className="mii-btn-container">
-                <button className='mii-btn' onClick={iHateMiis}></button>
+                {/* <button className='mii-btn' onClick={iHateMiis}></button> */}
 
             </div>
             <h3 className='currentroster-count'>Remaining: {fighters.length}</h3>
