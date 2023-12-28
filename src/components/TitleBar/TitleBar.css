@@ -1,0 +1,24 @@
+.app-title-container {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .title-bar {
+    background-color: #000;
+    position: sticky;
+  }
+  
+  .app-title {
+   position:sticky;
+   margin: 0;
+  }
+  
+  @media screen and (max-width: 430px) {
+    .app-title {
+      font-size: 12vw;
+     }
+     .app-title-container {
+      padding: 0;
+     }
+  }
