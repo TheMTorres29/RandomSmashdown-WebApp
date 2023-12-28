@@ -165,6 +165,7 @@ const SmashRoster = () => {
 
   return (
     <>
+        <h3 className='refresh-subtitle'>[ refresh to restart ]</h3>
         {/* Random Selector */}
         <div className='random-selection-container'>
             <div className="random-btn-container">
@@ -182,6 +183,7 @@ const SmashRoster = () => {
         </div>
         {/* CharSelectScreen */}
         <h2 className="currentroster-title" id='current-roster-id'>Current Roster</h2>
+
         <div className="top-css-container">
             <div className="mii-btn-container">
                 {/* <button className='mii-btn' onClick={iHateMiis}></button> */}

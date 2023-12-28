@@ -7,9 +7,9 @@ function App() {
   return (
     <>
       <div className='app-title-container'>
-        <h1 className='app-title'>Random Smashdown</h1>
-        <p className='app-subtitle'>[ refresh to restart ]</p>
-        <p></p>
+        <div className='title-bar'>
+          <h1 className='app-title'>Random-Smashdown.site</h1>
+        </div>
       </div>
       <SmashRoster />
       <Footer />
