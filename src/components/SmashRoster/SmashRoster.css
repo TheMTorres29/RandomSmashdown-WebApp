@@ -23,7 +23,6 @@
 
 .random-selection-container {
     width: 100% auto;
-    /* padding: 1rem 2rem 1rem 2rem; */
 }
 
 .random-btn-container {
@@ -157,8 +156,4 @@
         padding: 30% 0 0 0;
         margin: 0;
     }
-
-    /* .random-btn:hover {
-        transform: scale(1.02);
-    } */
 }
