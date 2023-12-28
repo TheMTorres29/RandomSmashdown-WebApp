@@ -17,8 +17,5 @@
   @media screen and (max-width: 430px) {
     .app-title {
       font-size: 12vw;
-     }
-     .app-title-container {
-      padding: 0;
-     }
+    }
   }
