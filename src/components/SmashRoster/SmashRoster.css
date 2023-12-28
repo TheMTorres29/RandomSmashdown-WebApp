@@ -29,22 +29,19 @@
     transition: transform .1s;
     padding: 0;
     filter: grayscale();
-    outline: none;
-    border: none;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
 }
 
-.random-btn:hover {
-    transform:scale(1.1);
+.random-btn:hover,
+.random-btn:focus {
+    transform: translateY(-0.2em);
     background-color: #616060;
     filter: none;
     background: none;
-    outline: none;
-    border: none;
-}
-
-.random-btn:focus {
-    outline: none;
-    border: none;
+    outline: 0;
+    border: 0;
 }
 
 .qmark {
