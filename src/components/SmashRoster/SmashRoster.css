@@ -34,11 +34,17 @@
     cursor: pointer;
 }
 
-.random-btn:hover,
-.random-btn:focus {
+.random-btn:hover {
     transform: translateY(-0.2em);
     background-color: #616060;
     filter: none;
+    background: none;
+    outline: 0;
+    border: 0;
+}
+
+.random-btn:focus {
+    background-color: #616060;
     background: none;
     outline: 0;
     border: 0;
