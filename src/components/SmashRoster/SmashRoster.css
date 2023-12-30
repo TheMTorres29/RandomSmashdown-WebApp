@@ -40,7 +40,8 @@
     cursor: pointer;
 }
 
-.random-btn:hover {
+.random-btn:hover,
+.random-btn:active {
     transform: translateY(-0.2em);
     background-color: #616060;
     filter: none;

@@ -49,9 +49,13 @@
 }
 @media screen and (max-width: 430px) {
     .cssicon-container {
-        width: 70px;
+        width: 50px;
+    }
+    .css-icon {
+        width: 95%;
     }
     .css-name {
         font-size: 2.5vw;
+        line-height: normal;
     }
 }
