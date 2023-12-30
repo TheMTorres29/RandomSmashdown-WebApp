@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './SmashRoster.css'
 import CSSIcon from '../CSSIcon/CSSIcon'
 import qmark from '../../assets/images/marioqmark.png'
+import smashlogo from '../../assets/images/Smash_Ball.png'
     
 const SmashRoster = () => {
     //  Fighter List
@@ -96,6 +97,7 @@ const SmashRoster = () => {
         ]
     )
     const [randomFighter, setRandomFighter] = useState(0)
+    const [fighterHistory, setFighterHistory] = useState([])
     const [noMiis, setNoMiis] = useState(false)
 
     const GetRandomFighter = () => {
@@ -108,7 +110,15 @@ const SmashRoster = () => {
         let tmpList = fighters;
         tmpList = (tmpList => tmpList.filter(fighters => fighters !== randomFighter))
         setFighters(tmpList)
-        // console.log(len)
+
+        // Add to History
+        let tmpHistory = fighterHistory;
+        tmpHistory.push(randomFighter)
+        function removeDupes(data) {
+            return [...new Set(data)]
+        }
+        setFighterHistory(removeDupes(tmpHistory))
+        // console.log(fighterHistory)
 
         if (len == 1) {
             document.getElementById("random-btn-id").style.visibility='hidden';
@@ -177,7 +187,7 @@ const SmashRoster = () => {
                 <h2 className="player-title">Fighter</h2>
                 <div className="player-fighter-container">
                     <h2 className='player-fighter-name'>{randomFighter.name}</h2>
-                    <img src={randomFighter.icon} alt="" className='player-fighter-icon'/>
+                    <img src={randomFighter.icon} alt='' className='player-fighter-icon'/>
                 </div>
             </div>
         </div>
@@ -193,7 +203,6 @@ const SmashRoster = () => {
         </div>
         <div className='smashroster-container' id='smashroster-id'>
             {fighters.map((fighter) => {
-                console.log('made a box')
                 return (
                     <CSSIcon
                         key = {fighter.id}
@@ -202,6 +211,16 @@ const SmashRoster = () => {
                     />
                 )
             })}
+        </div>
+        <div className='fighterhistory-container'>
+            <h2 className="fighterhistory-title">History</h2>
+            <div className="fighterhistory-icon-container">
+                {fighterHistory.slice(1).map((fighter) => {
+                    return (
+                        <img src={fighter.icon} alt='' className='fighterhistory-icon'/>
+                    )
+                })}
+            </div>
         </div>
     </>
   )
