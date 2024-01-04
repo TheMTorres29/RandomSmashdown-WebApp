@@ -82,19 +82,31 @@
     width: 100% auto;
 }
 
+.top-css-left {
+    width: 48%;
+    margin: none;
+    padding: none;
+}
+
+.top-css-right {
+    width: 48%;
+    margin: none;
+    padding: none;
+}
+
 .mii-btn-container {
     position: relative;
     display: flex;
-    width: 48%;
+    height: auto;
 }
 
 .mii-btn {
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     margin-left: 5%;
     padding: 0.5%;
-    width: 100px auto;
+    width: 10%;
     transition: transform .1s;
-    filter: grayscale();
+    /* filter: grayscale(); */
     outline: 0;
     border: 0;
     cursor: pointer;
@@ -130,7 +142,6 @@
     text-align: right;
     padding-right: 1rem;
     margin: 0;
-    width: 48%;
 }
 
 /* Smash Roster CSS */
@@ -188,9 +199,23 @@
     }
 }
 @media screen and (max-width: 960px) {
-    .player-fighter-name {
-        font-size: 2.3vw;
+    .qmark {
+        max-width: 125px;
     }
+
+    .player-container {
+        width: 140px;
+        height: 140px;
+    }
+
+    .player-fighter-name {
+        font-size: 4vw;
+    }
+
+    .player-fighter-icon {
+        width: 45%;
+    }
+
     .refresh-subtitle {
         padding: 8% 0 0 0;
     }
@@ -202,6 +227,7 @@
     .player-fighter-icon {
         width: 50%;
     }
+
     .refresh-subtitle {
         padding: 12% 0 0 0;
         margin: 0;
@@ -212,12 +238,34 @@
     }
 }
 @media screen and (max-width: 500px) {
-    .player-fighter-name {
-        font-size: 5.2vw;
+    .qmark {
+        max-width: 100px;
     }
+
+    .player-container {
+        width: 140px;
+        height: 140px;
+    }
+
+    .player-fighter-name {
+        font-size: 4vw;
+    }
+
+    .player-fighter-icon {
+        width: 45%;
+    }
+
     .refresh-subtitle {
-        padding: 20% 0 0 0;
+        padding: 15% 0 0 0;
         margin: 0;
+    }
+
+    .mii-btn {
+        width: 80px auto;
+    }
+
+    .mii-btn-img {
+        width: 45px;
     }
 
     .fighterhistory-icon {

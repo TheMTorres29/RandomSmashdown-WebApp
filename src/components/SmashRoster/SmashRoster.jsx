@@ -3,7 +3,7 @@ import './SmashRoster.css'
 import CSSIcon from '../CSSIcon/CSSIcon'
 import qmark from '../../assets/images/marioqmark.png'
 import miiLogo from '../../assets/images/miilogo.png'
-import noMiiLogo from '../../assets/images/Nomiilogo.png'
+import circleCross from '../../assets/images/circle-cross.svg'
     
 const SmashRoster = () => {
     //  Fighter List
@@ -147,7 +147,7 @@ const SmashRoster = () => {
                 i++;
             }
 
-            setFighters(miiFighterList)
+            setFighters(miiFighterList)            
             document.getElementById("mii-btn-id").disabled=true;
         }
         else if (noMiis == true) {
@@ -193,12 +193,17 @@ const SmashRoster = () => {
         <h2 className="currentroster-title" id='current-roster-id'>Current Roster</h2>
 
         <div className="top-css-container">
-            <div className="mii-btn-container">
-                <button className='mii-btn' id='mii-btn-id' onClick={iHateMiis}>
-                    <img src={miiLogo} alt="" className='mii-btn-img' id='miibtn-img-id'/>
-                </button>
+            <div className="top-css-left">
+                <div className="mii-btn-container">
+                    <button className='mii-btn' id='mii-btn-id' onClick={iHateMiis}>
+                        <img src={miiLogo} alt="" className='mii-btn-img' id='miibtn-img-id'/>
+                    </button>
+                </div>
             </div>
-            <h3 className='currentroster-count'>Remaining: {fighters.length}</h3>
+            <div className="top-css-right">
+                <h3 className='currentroster-count'>Remaining: {fighters.length}</h3>
+            </div>
+            
         </div>
         <div className='smashroster-container' id='smashroster-id'>
             {fighters.map((fighter) => {
