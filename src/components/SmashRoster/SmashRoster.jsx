@@ -2,7 +2,8 @@ import { useState } from 'react'
 import './SmashRoster.css'
 import CSSIcon from '../CSSIcon/CSSIcon'
 import qmark from '../../assets/images/marioqmark.png'
-import smashlogo from '../../assets/images/Smash_Ball.png'
+import miiLogo from '../../assets/images/miilogo.png'
+import noMiiLogo from '../../assets/images/Nomiilogo.png'
     
 const SmashRoster = () => {
     //  Fighter List
@@ -120,44 +121,42 @@ const SmashRoster = () => {
         setFighterHistory(removeDupes(tmpHistory))
         // console.log(fighterHistory)
 
+        console.log(len)
         if (len == 1) {
             document.getElementById("random-btn-id").style.visibility='hidden';
             document.getElementById("current-roster-id").innerText='Complete!';
             document.getElementById("smashroster-id").style.visibility='hidden';
         }
-        
     }
 
     const iHateMiis = () => {
-        console.log("MiiBtn pressed")
-        let miisOff = noMiis;
-
+        let miiFighterList = fighters
+        let miisOff = noMiis
+        let i = 0
         
 
-        let tmpList = fighters;
-        // tmpList = (tmpList => tmpList.filter(fighters => fighters !== fighters.name, "Mii Brawler"))
-        console.log(tmpList)
+        if (noMiis == false) {
+            console.log("Miis Off")
+            while (i < miiFighterList.length) {
+                let fighterName = miiFighterList[i].name
+                if (fighterName.startsWith("Mii ")) {
+                    // console.log("Splicing: " + fighterName)
+                    miiFighterList.splice(i, 1)
+                    i--
+                }
+                i++;
+            }
+
+            // miiFighterList.splice(71, 3)
+            setFighters(miiFighterList)
+            document.getElementById("mii-btn-id").disabled=true;
+        }
+        else if (noMiis == true) {
+            console.log("Miis On")
+        }
 
         miisOff = !miisOff
         setNoMiis(miisOff)
-
-
-        if (miisOff == true) {
-            console.log("Miis Off")   
-            for (var i = 0; i < fighters.length; i++) {
-                if (tmpList[i].name == "Mii FIghter") {
-                    // Fix this stuff ;0
-                }
-            }
-            console.log(tmpList[0].name)
-            let miiFighter = tmpList
-            tmpList = (tmpList => tmpList.filter(fighters => fighters !== miiFighter))
-        }
-        else if (miisOff == false) {
-            console.log("Miis On :0")
-        }
-        
-        setFighters(tmpList)
     }
 
     // Debug:
@@ -196,8 +195,9 @@ const SmashRoster = () => {
 
         <div className="top-css-container">
             <div className="mii-btn-container">
-                {/* <button className='mii-btn' onClick={iHateMiis}></button> */}
-
+                <button className='mii-btn' id='mii-btn-id' onClick={iHateMiis}>
+                    <img src={miiLogo} alt="" className='mii-btn-img' id='miibtn-img-id'/>
+                </button>
             </div>
             <h3 className='currentroster-count'>Remaining: {fighters.length}</h3>
         </div>

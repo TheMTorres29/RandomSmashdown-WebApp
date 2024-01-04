@@ -1,22 +1,3 @@
-.smashroster-container {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100% auto;
-    padding: 0.5%;
-    margin:  0 2% 0 2%;
-    border-radius: 5px;
-    box-shadow: inset 0 -2.5em 6em #424242,
-    0 0 0 2px #010101,
-    0.3em 0.3em 1em #757575;
-    justify-content: center;
-}
-
-.currentroster-title {
-    padding-bottom: 1%;
-    margin: 0;
-}
-
 .refresh-subtitle {
     padding: 5% 0 0 0;
     margin: 0;
@@ -26,6 +7,7 @@
     width: 100% auto;
 }
 
+/* Random Button */
 .random-btn-container {
     padding: 1% 0;
 }
@@ -61,6 +43,7 @@
    max-width: 150px; 
 }
 
+/* Player Fighter Selection */
 .player-container {
     margin: 0 auto;
     border: 2px solid white;
@@ -92,6 +75,7 @@
     width: 55%;
 }
 
+/* Top CSS */
 .top-css-container {
     position: relative;
     display: flex;
@@ -102,16 +86,44 @@
     position: relative;
     display: flex;
     width: 48%;
-
 }
 
 .mii-btn {
-    width: 60px;
-    background-image: url(../../assets/images/miilogo.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
     margin-bottom: 2%;
+    margin-left: 5%;
+    padding: 0.5%;
+    width: 100px auto;
+    transition: transform .1s;
+    filter: grayscale();
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.mii-btn:hover,
+.mii-btn:active {
+    transform: translateY(-0.15rem);
+    background-color: #616060;
+    filter: none;
+    background: none;
+    outline: 0;
+    border: 0;
+}
+
+.mii-btn:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.mii-btn-img {
+    position: relative;
+    width: 50px;
+    margin: 0;
+    padding: 0;
 }
 
 .currentroster-count {
@@ -120,6 +132,28 @@
     margin: 0;
     width: 48%;
 }
+
+/* Smash Roster CSS */
+.smashroster-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100% auto;
+    padding: 0.5%;
+    margin:  0 2% 0 2%;
+    border-radius: 5px;
+    box-shadow: inset 0 -2.5em 6em #424242,
+    0 0 0 2px #010101,
+    0.3em 0.3em 1em #757575;
+    justify-content: center;
+}
+
+.currentroster-title {
+    padding-bottom: 1%;
+    margin: 0;
+}
+
+/* Fighter History */
 
 .fighterhistory-container {
     padding: 2%;
