@@ -121,11 +121,11 @@ const SmashRoster = () => {
         setFighterHistory(removeDupes(tmpHistory))
         // console.log(fighterHistory)
 
-        console.log(len)
         if (len == 1) {
             document.getElementById("random-btn-id").style.visibility='hidden';
             document.getElementById("current-roster-id").innerText='Complete!';
             document.getElementById("smashroster-id").style.visibility='hidden';
+            document.getElementById("mii-btn-id").disabled=true;
         }
     }
 
@@ -147,7 +147,6 @@ const SmashRoster = () => {
                 i++;
             }
 
-            // miiFighterList.splice(71, 3)
             setFighters(miiFighterList)
             document.getElementById("mii-btn-id").disabled=true;
         }
