@@ -149,7 +149,7 @@ const SmashRoster = () => {
 
             setFighters(miiFighterList)            
             document.getElementById("mii-btn-id").disabled=true;
-            document.getElementById("miisoff-message-id").style.opacity=100;
+            document.getElementById("miisoff-message-id").style.display="block";
         }
         else if (noMiis == true) {
             console.log("Miis On")
@@ -199,7 +199,9 @@ const SmashRoster = () => {
                     <button className='mii-btn' id='mii-btn-id' onClick={iHateMiis}>
                         <img src={miiLogo} alt="" className='mii-btn-img' id='miibtn-img-id'/>
                     </button>
-                    <h3 className='miisoff-message' id='miisoff-message-id'>Removed Miis</h3>
+                    <div className="miisoff-message" id='miisoff-message-id'>
+                        Removed Miis
+                    </div>
                 </div>
             </div>
             <div className="top-css-right">
