@@ -138,6 +138,14 @@
     padding: 0;
 }
 
+.miisoff-message {
+    margin-left: 1%;
+    color: white;
+    transition: transform .1s;
+    opacity: 0;
+    cursor: default;
+}
+
 .currentroster-count {
     text-align: right;
     padding-right: 1rem;
