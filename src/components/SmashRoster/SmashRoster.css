@@ -108,6 +108,7 @@
     outline: 0;
     border: 0;
     cursor: pointer;
+    background: none;
 }
 
 .mii-btn:hover,
@@ -115,6 +116,7 @@
     transform: translateY(-0.12rem);
     outline: 0;
     border: 0;
+    background: none;
 }
 
 .mii-btn:disabled {
