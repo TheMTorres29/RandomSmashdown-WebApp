@@ -170,7 +170,7 @@ const SmashRoster = () => {
   return (
     <>
         {/* Instructions */}
-        <h3 className='refresh-subtitle'>[ refresh to restart ]</h3>
+        <h3 className='refresh-subtitle' onClick={() => window.location.reload(false)}>[ refresh to restart ]</h3>
 
         {/* Random Selector */}
         <div className='random-selection-container'>
