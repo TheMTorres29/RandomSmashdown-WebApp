@@ -1,7 +1,16 @@
-.refresh-subtitle {
+.refresh-container {
+    width: 100% auto;
     padding: 5% 0 0 0;
-    margin: 0;
+    outline: 1px solid red;
+}
+
+.refresh-subtitle {
+    position:relative;
+    font-size: 20px;
+    width: fit-content;
+    margin: 0 auto;
     cursor: pointer;
+    outline: 1px solid green;
 }
 
 .random-selection-container {
@@ -206,9 +215,9 @@
     .player-fighter-name {
         font-size: 1.8vw;
     }
-    .refresh-subtitle {
-        padding: 6% 0 0 0;
-        margin: 0;
+    
+    .refresh-container {
+        padding: 7% 0 0 0;
     }
 }
 @media screen and (max-width: 960px) {
@@ -229,7 +238,7 @@
         width: 45%;
     }
 
-    .refresh-subtitle {
+    .refresh-container {
         padding: 8% 0 0 0;
     }
 }
@@ -241,9 +250,8 @@
         width: 50%;
     }
 
-    .refresh-subtitle {
-        padding: 12% 0 0 0;
-        margin: 0;
+    .refresh-container {
+        padding: 11.5% 0 0 0;
     }
 
     .fighterhistory-icon {
@@ -268,9 +276,8 @@
         width: 45%;
     }
 
-    .refresh-subtitle {
-        padding: 15% 0 0 0;
-        margin: 0;
+    .refresh-container {
+        padding: 12% 0 0 0;
     }
 
     .mii-btn {
