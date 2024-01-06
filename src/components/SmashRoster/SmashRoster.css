@@ -105,7 +105,6 @@
     margin-left: 5%;
     padding: 0.5%;
     transition: transform .1s;
-    /* filter: grayscale(); */
     outline: 0;
     border: 0;
     cursor: pointer;
@@ -113,10 +112,7 @@
 
 .mii-btn:hover,
 .mii-btn:active {
-    transform: translateY(-0.15rem);
-    background-color: #616060;
-    filter: none;
-    background: none;
+    transform: translateY(-0.12rem);
     outline: 0;
     border: 0;
 }
@@ -137,13 +133,19 @@
     padding: 0;
 }
 
+.removemiis-message {
+    font-size: 19px;
+    color: #FFFFFFDE;
+    padding: 1%;
+}
+
 .miisoff-message {
     display: none;
-    color: white;
+    color: #FFFFFFDE;
     padding: 1%;
     transition: transform .1s;
     cursor: default;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .currentroster-count {
@@ -174,7 +176,6 @@
 }
 
 /* Fighter History */
-
 .fighterhistory-container {
     padding: 2%;
 }
@@ -275,6 +276,10 @@
 
     .mii-btn-img {
         width: 45px;
+    }
+
+    .removemiis-message {
+        display: none;
     }
 
     .fighterhistory-icon {

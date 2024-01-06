@@ -3,7 +3,6 @@ import './SmashRoster.css'
 import CSSIcon from '../CSSIcon/CSSIcon'
 import qmark from '../../assets/images/marioqmark.png'
 import miiLogo from '../../assets/images/miilogo.png'
-import circleCross from '../../assets/images/circle-cross.svg'
     
 const SmashRoster = () => {
     //  Fighter List
@@ -100,6 +99,15 @@ const SmashRoster = () => {
     const [randomFighter, setRandomFighter] = useState(0)
     const [fighterHistory, setFighterHistory] = useState([])
     const [noMiis, setNoMiis] = useState(false)
+    const [isHovering, setIsHovering] = useState(false)
+    
+    const handleMouseOver = () => {
+        setIsHovering(true);
+    };
+    
+    const handleMouseOut = () => {
+        setIsHovering(false);
+    };
 
     const GetRandomFighter = () => {
         let len = fighters.length
@@ -159,29 +167,20 @@ const SmashRoster = () => {
         setNoMiis(miisOff)
     }
 
-    // Debug:
-    // const RemoveFighter = () => {
-    //     console.log(randomFighter.name)
-    //     Delete from list now...
-    //     let listIndex = randomFighter.id-1
-    //     console.log(randomFighter.id)
-    //     console.log(listIndex)
-    //     let tmpList = fighters;
-    //     tmpList = (tmpList => tmpList.filter(fighters => fighters !== randomFighter))
-    //     setFighters(tmpList)
-    //     console.log(fighters)
-    // }
-
   return (
     <>
+        {/* Instructions */}
         <h3 className='refresh-subtitle'>[ refresh to restart ]</h3>
+
         {/* Random Selector */}
         <div className='random-selection-container'>
+            {/* Random Button */}
             <div className="random-btn-container">
                 <button className='random-btn' id='random-btn-id' onClick={GetRandomFighter}>
                     <img src={qmark} alt="" className='qmark'/>
                 </button>
             </div>
+            {/* Rnadom Player */}
             <div className="player-container">
                 <h2 className="player-title">Fighter</h2>
                 <div className="player-fighter-container">
@@ -193,22 +192,33 @@ const SmashRoster = () => {
         {/* CharSelectScreen */}
         <h2 className="currentroster-title" id='current-roster-id'>Current Roster</h2>
 
+        {/* Top CSS Bar */}
         <div className="top-css-container">
             <div className="top-css-left">
+                {/* Mii Button */}
                 <div className="mii-btn-container">
-                    <button className='mii-btn' id='mii-btn-id' onClick={iHateMiis}>
+                    <button className='mii-btn' id='mii-btn-id' onClick={iHateMiis} onMouseOver={handleMouseOver}
+                            onMouseOut={handleMouseOut}>
                         <img src={miiLogo} alt="" className='mii-btn-img' id='miibtn-img-id'/>
                     </button>
+                    {isHovering && (
+                        <div className="removemiis-message">
+                            Remove Miis ?
+                        </div>
+                    )}
                     <div className="miisoff-message" id='miisoff-message-id'>
-                        Removed Miis
+                        Removed Miis !
                     </div>
                 </div>
             </div>
             <div className="top-css-right">
+                {/* Roster Count */}
                 <h3 className='currentroster-count'>Remaining: {fighters.length}</h3>
             </div>
             
         </div>
+
+        {/* Smash CSS */}
         <div className='smashroster-container' id='smashroster-id'>
             {fighters.map((fighter) => {
                 return (
@@ -220,6 +230,8 @@ const SmashRoster = () => {
                 )
             })}
         </div>
+
+        {/* Fighter History */}
         <div className='fighterhistory-container'>
             <h2 className="fighterhistory-title">History</h2>
             <div className="fighterhistory-icon-container">
