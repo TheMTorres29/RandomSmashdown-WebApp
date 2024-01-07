@@ -1,5 +1,45 @@
+.refresh-btn-container {
+    position: absolute;
+    display: block;
+    width: 80px;
+    z-index: 2;
+    padding: 0;
+    outline: solid 1px red;
+  }
+  
+  .refresh-btn {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 10px;
+    top: 70px;
+    padding: 0;
+    border-radius: 50%;
+    border: #fff;
+  }
+  
+  .refresh-img {
+    margin-top: 3px;
+    width: 50%;
+    filter: brightness(0) invert(1);
+  }
+  
+  .refresh-img:hover,
+  .refresh-img:active {
+    animation: spin 1000ms infinite;
+  }
+  
+  @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+  }
+
 .refresh-container {
-    width: 100% auto;
+    width: 10% auto;
     padding: 5% 0 0 0;
 }
 
@@ -8,7 +48,7 @@
     font-size: 20px;
     width: fit-content;
     margin: 0 auto;
-    cursor: pointer;
+    cursor: default;
 }
 
 .random-selection-container {

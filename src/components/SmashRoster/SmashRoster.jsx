@@ -3,6 +3,8 @@ import './SmashRoster.css'
 import CSSIcon from '../CSSIcon/CSSIcon'
 import qmark from '../../assets/images/marioqmark.png'
 import miiLogo from '../../assets/images/miilogo.png'
+import refreshIcon from '../../assets/images/refresh-icon.png'
+
     
 const SmashRoster = () => {
     //  Fighter List
@@ -169,9 +171,14 @@ const SmashRoster = () => {
 
   return (
     <>
-        {/* Instructions */}
+        {/* Refresh */}
+        <div className="refresh-btn-container">
+            <button className='refresh-btn' onClick={() => window.location.reload(false)}>
+                <img src={refreshIcon} alt="" className='refresh-img' />
+            </button>
+        </div>
         <div className="refresh-container">
-            <h3 className='refresh-subtitle' onClick={() => window.location.reload(false)}>[ refresh to restart ]</h3>
+            <h3 className='refresh-subtitle'>[ refresh to restart ]</h3>
         </div>
 
         {/* Random Selector */}
