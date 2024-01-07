@@ -11,9 +11,9 @@
 }
   
 .app-title {
- position: sticky;
- margin: 0;
- padding: 0.2%;
+  position: sticky;
+  margin: 0;
+  padding: 0.2%;
 }
   
 @media screen and (max-width: 440px) {
