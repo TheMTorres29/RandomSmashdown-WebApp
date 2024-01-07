@@ -1,22 +1,58 @@
 .app-title-container {
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-  }
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
   
-  .title-bar {
-    background-color: #000;
-    position: sticky;
-  }
+.title-bar {
+  background-color: #000;
+  position: sticky;
+}
   
+.app-title {
+ position: sticky;
+ margin: 0;
+ padding: 0.2%;
+}
+
+.refresh-btn-container {
+  width: 80px auto;
+}
+
+.refresh-btn {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 10px;
+  top: 70px;
+  padding: 0;
+  border-radius: 50%;
+  border: #fff;
+}
+
+.refresh-img {
+  margin-top: 3px;
+  width: 50%;
+  filter: brightness(0) invert(1);
+}
+
+.refresh-img:hover,
+.refresh-img:active {
+  animation: spin 1000ms infinite;
+
+}
+
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}
+  
+@media screen and (max-width: 440px) {
   .app-title {
-   position:sticky;
-   margin: 0;
-   padding: 0.2%;
-  }
-  
-  @media screen and (max-width: 440px) {
-    .app-title {
       font-size: 10.5vw;
-    }
   }
+}
