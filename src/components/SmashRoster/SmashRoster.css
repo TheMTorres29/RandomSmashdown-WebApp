@@ -1,9 +1,7 @@
 /* Fighter Background Container*/
 .fighter-background-container {
     position: absolute;
-    display: block;
-    border: none;
-    outline: none;
+    display: none;
     width: 100%;
     height: 39%;
     margin: 0 auto;

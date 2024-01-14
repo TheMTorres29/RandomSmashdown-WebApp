@@ -123,7 +123,8 @@ const SmashRoster = () => {
         setInkSplat(ink1)
 
         // Fighter Background Slide-In
-        document.getElementById("fighter-background-id").style.outline='solid 3px white'
+        document.getElementById("fighter-background-id").style.display = 'block';
+        document.getElementById("fighter-background-id").style.outline='solid 3px white';
         setFighterEmblem(selectedRandomFighter.emblem)
         setFighterBgColor(selectedRandomFighter.bg)
         setSlide(1)
