@@ -123,7 +123,7 @@ const SmashRoster = () => {
         setInkSplat(ink1)
 
         // Fighter Background Slide-In
-        document.getElementById("fighter-background-id").style.display = 'block';
+        // document.getElementById("fighter-background-id").style.display = 'block';
         document.getElementById("fighter-background-id").style.outline='solid 3px white';
         setFighterEmblem(selectedRandomFighter.emblem)
         setFighterBgColor(selectedRandomFighter.bg)
@@ -201,14 +201,14 @@ const SmashRoster = () => {
         </div>
 
         {/* Random Selector */}
-        <div className='random-selection-container'>
+        <div className='random-selection-container' id='fighter-background-id' backgroundcolor={fighterBgColor} >
             {/* Fighter Background */}
-            <div className="fighter-background-container" id='fighter-background-id' backgroundColor={fighterBgColor}>
-                <img className='fighter-portrait' id='fighter-portrait-id' src={randomFighter.portrait} alt='' backgroundColor={fighterBgColor}
-                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' />
-                <img className='fighter-emblem' id='fighter-emblem-id' src={fighterEmblem} alt='' 
+            <div className="fighter-background-container" >
+                <img className='fighter-portrait' id='fighter-portrait-id' src={randomFighter.portrait} alt=''
                     slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' />
                 <img className='fighter-ink-background' id='ink-background-id' src={inkSplat} alt='' 
+                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' />
+                <img className='fighter-emblem' id='fighter-emblem-id' src={fighterEmblem} alt='' 
                     slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' />
             </div>
             {/* Random Button */}
