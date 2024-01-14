@@ -1,8 +1,61 @@
+/* Fighter Background Container*/
+.fighter-background-container {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 39%;
+    margin: 0 auto;
+    z-index: 0;
+    opacity: 75%;
+}
+
+.fighter-portrait {
+    height: 100%;
+    /* outline: 1px solid green; */
+    position: absolute;
+    left: 20%;
+    z-index: 1;
+}
+
+.fighter-portrait[slide='1'] {
+    animation: slideBy 0.5s;
+}
+
+.fighter-ink-background {
+    height: 85%;
+    /* outline: 1px solid yellow; */
+    left: 22%;
+    position: absolute;
+    z-index: 0;
+}
+
+.fighter-ink-background[slide='1'] {
+    animation: slideBy 0.5s;
+    display: block;
+}
+
+
+@keyframes slideBy {
+    0% {
+      opacity: 0%;
+      transform: translateX(150%);
+    }
+
+    80% {
+      opacity: 60%;
+    }
+
+    100% {
+      opacity: 100%;
+    }
+}
+
+/* Refresh Container */
 .refresh-btn-container {
     position: absolute;
     display: block;
     width: 80px;
-    z-index: 2;
+    z-index: 3;
     padding: 0;
   }
   
@@ -50,8 +103,10 @@
     cursor: default;
 }
 
+/* Random Container */
 .random-selection-container {
     width: 100% auto;
+    z-index: 1;
 }
 
 /* Random Button */
@@ -67,14 +122,13 @@
     outline: 0;
     border: 0;
     cursor: pointer;
+    background: none;
 }
 
 .random-btn:hover,
 .random-btn:active {
     transform: translateY(-0.2em);
-    background-color: #616060;
     filter: none;
-    background: none;
     outline: 0;
     border: 0;
 }
@@ -90,7 +144,7 @@
    max-width: 150px; 
 }
 
-/* Player Fighter Selection */
+/* Player Fighter Selection Container*/
 .player-container {
     margin: 0 auto;
     border: 2px solid white;
@@ -98,6 +152,7 @@
     width: 170px;
     height: 170px;
     display: flex;
+    z-index: 1;
     flex-direction: column;
 }
 
@@ -105,11 +160,15 @@
     margin: 0;
     border-bottom: 2px solid white;
     width: 100% auto;
+    z-index: 1;
+
 }
 
 .player-fighter-container {
     width: 100% auto;
     height: 80%;
+    z-index: 1;
+
 }
 
 .player-fighter-name {
@@ -122,7 +181,7 @@
     width: 55%;
 }
 
-/* Top CSS */
+/* Top CSS Container*/
 .top-css-container {
     position: relative;
     display: flex;
@@ -141,6 +200,7 @@
     padding: none;
 }
 
+/* Mii Button Container */
 .mii-btn-container {
     position: relative;
     display: flex;
@@ -204,7 +264,7 @@
     margin-top: 3%;
 }
 
-/* Smash Roster CSS */
+/* Smash Roster CSS Container */
 .smashroster-container {
     position: relative;
     display: flex;
@@ -220,11 +280,12 @@
 }
 
 .currentroster-title {
+    padding-top: 1%;
     padding-bottom: 1%;
     margin: 0;
 }
 
-/* Fighter History */
+/* Fighter History Container */
 .fighterhistory-container {
     padding: 2%;
 }
@@ -256,6 +317,14 @@
     .refresh-container {
         padding: 7% 0 0 0;
     }
+    
+    .fighter-portrait {
+        left: 15%;
+    }
+
+    .fighter-background-container {
+        height: 38%;
+    }
 }
 @media screen and (max-width: 960px) {
     .qmark {
@@ -268,7 +337,7 @@
     }
 
     .player-fighter-name {
-        font-size: 4vw;
+        font-size: 2.6vw;
     }
 
     .player-fighter-icon {
@@ -277,6 +346,14 @@
 
     .refresh-container {
         padding: 8% 0 0 0;
+    }
+
+    .fighter-portrait {
+        left: 11%;
+    }
+
+    .fighter-background-container {
+        height: 290px;
     }
 }
 @media screen and (max-width: 768px) {
@@ -293,6 +370,20 @@
 
     .fighterhistory-icon {
         width: 5%;
+    }
+    .fighter-portrait {
+        height: 80%;
+        left: 0%;
+        top: 10%;
+    }
+
+    .fighter-background-container {
+        height: 31%;
+    }
+
+    .fighter-ink-background {
+        left: 0%;
+        height: 100%;
     }
 }
 @media screen and (max-width: 500px) {
@@ -331,5 +422,20 @@
 
     .fighterhistory-icon {
         width: 6%;
+    }
+
+    .fighter-portrait {
+        height: 70%;
+        left: 0%;
+        top: 15%;
+    }
+
+    .fighter-background-container {
+        height: 28%;
+    }
+
+    .fighter-ink-background {
+        left: 0%;
+        height: 100%;
     }
 }
