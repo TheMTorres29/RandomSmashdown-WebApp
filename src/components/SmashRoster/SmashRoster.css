@@ -404,6 +404,12 @@
         width: 45%;
     }
 
+    .refresh-btn {
+        top: 50px;
+        width: 36px;
+        height: 36px;
+    }
+
     .refresh-container {
         padding: 12% 0 0 0;
     }
