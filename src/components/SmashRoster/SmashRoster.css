@@ -379,6 +379,7 @@
 
     .fighter-background-container {
         height: 31%;
+        display: none;
     }
 
     .fighter-ink-background {
