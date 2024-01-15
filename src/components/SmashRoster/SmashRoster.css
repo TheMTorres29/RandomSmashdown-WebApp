@@ -431,7 +431,7 @@
     .fighter-portrait[slide='1'],
     .fighter-emblem[slide='1'],
     .fighter-ink-background[slide='1'] {
-        animation: mobileFade 1s;
+        animation: none;
         transition: ease 1s;
     }
 }
