@@ -1,10 +1,7 @@
 /* Fighter Background Container*/
-
-
-/* Fix this with other container!!! :0 */
 .fighter-background-container {
     position: absolute;
-    display: block;
+    display: none;
     width: 100%;
     height: 40%;
     margin: 0 auto;
@@ -16,7 +13,7 @@
 }
 
 .fighter-portrait {
-    height: 100%;
+    height: 95%;
     /* outline: 1px solid green; */
     position: absolute;
     left: 20%;
@@ -73,7 +70,7 @@
     position: absolute;
     display: block;
     width: 80px;
-    z-index: 3;
+    z-index: 4;
     padding: 0;
   }
   
@@ -124,13 +121,12 @@
 /* Random Container */
 .random-selection-container {
     width: 100% auto;
-    z-index: 0;
-
 }
 
 /* Random Button */
 .random-btn-container {
     padding: 1% 0;
+    z-index: 3;
 }
 
 .random-btn {
@@ -166,36 +162,42 @@
 /* Player Fighter Selection Container*/
 .player-container {
     margin: 0 auto;
-    border: 2px solid white;
     border-radius: 5px;
     width: 170px;
     height: 170px;
     display: flex;
-    z-index: 1;
+    z-index: 3;
     flex-direction: column;
 }
 
 .player-title {
     margin: 0;
-    border-bottom: 2px solid white;
+    border: 2px solid white;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
     width: 100% auto;
-    z-index: 1;
+    z-index: 3;
 }
 
 .player-fighter-container {
+    display: block;
     width: 100% auto;
-    height: 80%;
-    z-index: 1;
+    height: 70%;
+    border: 2px solid white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 3;
 }
 
 .player-fighter-name {
     width: 100%;
     margin: 0;
     font-size: 1.3vw;
+    z-index: 3;
 }
 
 .player-fighter-icon {
-    width: 55%;
+    width: 45%;
 }
 
 /* Top CSS Container*/
@@ -326,6 +328,17 @@
     width: 2.5%;
 }
 
+@keyframes mobileFade {
+    0% {
+      
+      opacity: 0%;
+      /* transform: translateX(150%); */
+    }
+
+    100% {
+      opacity: 100%;
+    }
+}
 
 /* Screen Size Scaling */
 @media screen and (max-width: 1200px) {
@@ -357,6 +370,7 @@
     .player-container {
         width: 140px;
         height: 140px;
+        padding-bottom: 2%;
     }
 
     .player-fighter-name {
@@ -401,7 +415,7 @@
     }
 
     .fighter-emblem {
-        right: 5%;
+        right: 0%;
     }
 
     .fighter-background-container {
@@ -411,13 +425,14 @@
 
     .fighter-ink-background {
         left: 0%;
-        height: 100%;
+        height: 90%;
     }
 
     .fighter-portrait[slide='1'],
     .fighter-emblem[slide='1'],
     .fighter-ink-background[slide='1'] {
-        animation: none;
+        animation: mobileFade 1s;
+        transition: ease 1s;
     }
 }
 @media screen and (max-width: 500px) {
@@ -467,15 +482,22 @@
     .fighter-portrait {
         height: 70%;
         left: 0%;
-        top: 15%;
+        top: 25%;
+    }
+
+    .fighter-emblem {
+        width: 90%;
+        top: 10%;
+        left: 30%;
     }
 
     .fighter-background-container {
-        height: 28%;
+        height: 30%;
+        overflow-y: hidden;
     }
 
     .fighter-ink-background {
         left: 0%;
-        height: 100%;
+        height: 80%;
     }
 }
