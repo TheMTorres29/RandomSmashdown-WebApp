@@ -132,7 +132,7 @@
 
 .random-btn {
     width: 100px auto;
-    transition: transform .1s;
+    transition: transform .05s;
     padding: 0;
     filter: grayscale();
     outline: 0;
