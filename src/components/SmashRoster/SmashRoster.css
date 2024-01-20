@@ -1,20 +1,26 @@
+/* Random Container */
+.random-selection-container {
+    width: 100%;
+    position: relative;
+}
+
 /* Fighter Background Container*/
 .fighter-background-container {
     position: absolute;
-    display: none;
+    display: inline-flex;
     width: 100%;
-    height: 40%;
+    height: 100%;
     margin: 0 auto;
     z-index: 0;
     opacity: 100%;
     animation-timing-function: linear;
-    transition: ease 1s;
-    overflow-x: hidden;
+    transition: ease 0.5s;
+    outline: solid 5px purple;
 }
 
 .fighter-portrait {
-    height: 95%;
-    /* outline: 1px solid green; */
+    height: 100%;
+    outline: 1px solid green;
     position: absolute;
     left: 20%;
     z-index: 1;
@@ -25,10 +31,10 @@
 }
 
 .fighter-emblem {
-    height: 100%;
-    /* outline: 1px solid orange; */
+    min-height: 100%;
+    outline: 1px solid orange;
     position: absolute;
-    right: 20%;
+    right: 16%;
     z-index: 1;
 }
 
@@ -37,9 +43,9 @@
 }
 
 .fighter-ink-background {
-    height: 85%;
-    /* outline: 1px solid yellow; */
-    left: 22%;
+    height: 100%;
+    outline: 1px solid yellow;
+    left: 10%;
     position: absolute;
     z-index: 0;
 }
@@ -118,11 +124,6 @@
     cursor: default;
 }
 
-/* Random Container */
-.random-selection-container {
-    width: 100% auto;
-}
-
 /* Random Button */
 .random-btn-container {
     padding: 1% 0;
@@ -140,7 +141,6 @@
     background: none;
 }
 
-.random-btn:hover,
 .random-btn:active {
     transform: translateY(-0.2em);
     filter: none;
@@ -355,11 +355,7 @@
     }
 
     .fighter-emblem {
-        right: 5%;
-    }
-
-    .fighter-background-container {
-        height: 38%;
+        right: 4%;
     }
 }
 @media screen and (max-width: 960px) {
@@ -386,11 +382,14 @@
     }
 
     .fighter-portrait {
-        left: 11%;
+        left: 10%;
     }
-
-    .fighter-background-container {
-        height: 290px;
+    .fighter-emblem {
+        right: 2%;
+    }
+    .fighter-ink-background {
+        left: 0%;
+        height: 90%;
     }
 }
 @media screen and (max-width: 768px) {
@@ -418,14 +417,10 @@
         right: 0%;
     }
 
-    .fighter-background-container {
-        height: 31%;
-        /* display: none; */
-    }
-
     .fighter-ink-background {
         left: 0%;
-        height: 90%;
+        top: 15%;
+        height: 60%;
     }
 
     .fighter-portrait[slide='1'],
@@ -486,18 +481,7 @@
     }
 
     .fighter-emblem {
-        width: 90%;
-        top: 10%;
-        left: 30%;
+        width: 50%;
     }
 
-    .fighter-background-container {
-        height: 30%;
-        overflow-y: hidden;
-    }
-
-    .fighter-ink-background {
-        left: 0%;
-        height: 80%;
-    }
 }
