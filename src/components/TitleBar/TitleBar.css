@@ -13,10 +13,16 @@
   position: sticky;
   margin: 0;
   padding: 0.2%;
+  font-size: 3.5rem;
 }
   
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 570px) {
   .app-title {
-      font-size: 10.5vw;
+      font-size: 3rem;
+  }
+}
+@media screen and (max-width: 412px) {
+  .app-title {
+      font-size: 2rem;
   }
 }

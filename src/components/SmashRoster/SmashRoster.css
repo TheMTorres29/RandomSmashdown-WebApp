@@ -57,7 +57,7 @@
 
 @keyframes slideBy {
     0% {
-      
+      overflow-x: hidden;
       opacity: 0%;
       transform: translateX(150%);
     }
@@ -118,7 +118,7 @@
 
 .refresh-subtitle {
     position:relative;
-    font-size: 20px;
+    font-size: 1.3rem;
     width: fit-content;
     margin: 0 auto;
     cursor: default;
@@ -192,7 +192,7 @@
 .player-fighter-name {
     width: 100%;
     margin: 0;
-    font-size: 1.3vw;
+    font-size: 1.6rem;
     z-index: 3;
 }
 
@@ -299,6 +299,7 @@
 }
 
 .currentroster-title {
+    font-size: 1.8rem;
     padding-top: 1%;
     padding-bottom: 1%;
     margin: 0;
