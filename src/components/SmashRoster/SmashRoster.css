@@ -15,6 +15,7 @@
     opacity: 100%;
     animation-timing-function: linear;
     transition: ease 0.5s;
+    overflow-x: hidden;
     /* outline: solid 5px purple; */
 }
 
