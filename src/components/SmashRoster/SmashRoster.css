@@ -15,12 +15,12 @@
     opacity: 100%;
     animation-timing-function: linear;
     transition: ease 0.5s;
-    outline: solid 5px purple;
+    /* outline: solid 5px purple; */
 }
 
 .fighter-portrait {
     height: 100%;
-    outline: 1px solid green;
+    /* outline: 1px solid green; */
     position: absolute;
     left: 20%;
     z-index: 1;
@@ -32,7 +32,7 @@
 
 .fighter-emblem {
     min-height: 100%;
-    outline: 1px solid orange;
+    /* outline: 1px solid orange; */
     position: absolute;
     right: 16%;
     z-index: 1;
@@ -44,7 +44,7 @@
 
 .fighter-ink-background {
     height: 100%;
-    outline: 1px solid yellow;
+    /* outline: 1px solid yellow; */
     left: 10%;
     position: absolute;
     z-index: 0;
