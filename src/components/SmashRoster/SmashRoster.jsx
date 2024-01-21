@@ -204,12 +204,12 @@ const SmashRoster = () => {
         <div className='random-selection-container' id='random-selection-id' backgroundcolor={fighterBgColor} >
             {/* Fighter Background */}
             <div className="fighter-background-container" id='fighter-background-id'>
-                <img className='fighter-portrait' id='fighter-portrait-id' src={randomFighter.portrait} alt=''
-                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' />
+                <img className='fighter-portrait' id='fighter-portrait-id' src={randomFighter.portrait} alt='' key={randomFighter.portrait}
+                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' role='presentation'/>
                 <img className='fighter-ink-background' id='ink-background-id' src={inkSplat} alt='' 
-                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' />
-                <img className='fighter-emblem' id='fighter-emblem-id' src={fighterEmblem} alt='' 
-                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' />
+                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' role='presentation'/>
+                <img className='fighter-emblem' id='fighter-emblem-id' src={fighterEmblem} alt='' key={randomFighter.emblem}
+                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' role='presentation'/>
             </div>
             {/* Random Button */}
             <div className="random-btn-container">
