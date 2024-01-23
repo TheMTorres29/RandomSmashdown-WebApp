@@ -88,6 +88,7 @@
     top: 70px;
     padding: 0;
     border-radius: 50%;
+    background-color: #010101;
     border: #fff;
   }
   
@@ -122,6 +123,7 @@
     width: fit-content;
     margin: 0 auto;
     cursor: default;
+    color: #FFFFFFDE;
 }
 
 /* Random Button */
@@ -177,6 +179,7 @@
     border-top-left-radius: 5px;
     width: 100% auto;
     z-index: 3;
+    color: #FFFFFFDE;
 }
 
 .player-fighter-container {
@@ -303,6 +306,8 @@
     padding-top: 1%;
     padding-bottom: 1%;
     margin: 0;
+    color: #FFFFFFDE;
+
 }
 
 /* Fighter History Container */
@@ -312,6 +317,8 @@
 
 .fighterhistory-title {
     margin: 1.5% 0 0 0;
+    color: #FFFFFFDE;
+
 }
 
 .fighterhistory-icon-container {
