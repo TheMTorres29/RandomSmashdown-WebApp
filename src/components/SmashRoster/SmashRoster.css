@@ -197,6 +197,7 @@
     margin: 0;
     font-size: 1.6rem;
     z-index: 3;
+    color: #FFFFFFDE;
 }
 
 .player-fighter-icon {
@@ -284,6 +285,7 @@
     padding-right: 1rem;
     margin: 0;
     margin-top: 3%;
+    color: #FFFFFFDE;
 }
 
 /* Smash Roster CSS Container */
