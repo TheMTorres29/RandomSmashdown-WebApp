@@ -6,7 +6,6 @@ import miiLogo from '../../assets/images/miilogo.png'
 import refreshIcon from '../../assets/images/refresh-icon.png'
 import ink1 from '../../assets/images/ink-splatter-1.png'
 
-    
 const SmashRoster = () => {
     //  Fighter List
     const [fighters, setFighters] = useState(
@@ -117,6 +116,7 @@ const SmashRoster = () => {
     };
 
     const GetRandomFighter = () => {
+        // testBlurLoad()
         let selectedRandomFighter = fighters[Math.floor(Math.random() * fighters.length)]
         // console.log(selectedRandomFighter)
         setRandomFighter(selectedRandomFighter)
@@ -128,8 +128,6 @@ const SmashRoster = () => {
         setFighterEmblem(selectedRandomFighter.emblem)
         setFighterBgColor(selectedRandomFighter.bg)
         setSlide(1)
-
-
 
         // Delete Fighter from list
         let tmpList = fighters;
@@ -204,8 +202,9 @@ const SmashRoster = () => {
         <div className='random-selection-container' id='random-selection-id' backgroundcolor={fighterBgColor} >
             {/* Fighter Background */}
             <div className="fighter-background-container" id='fighter-background-id'>
-                <img className='fighter-portrait' id='fighter-portrait-id' src={randomFighter.portrait} alt='' key={randomFighter.portrait}
-                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' role='presentation'/>
+
+                <img className='fighter-portrait' id='fighter-portrait-id' src={randomFighter.portrait} alt='fp' key={randomFighter.portrait}
+                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' role='presentation' decoding='async' fetchpriority='high' />
                 <img className='fighter-ink-background' id='ink-background-id' src={inkSplat} alt='' 
                     slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' role='presentation'/>
                 <img className='fighter-emblem' id='fighter-emblem-id' src={fighterEmblem} alt='' key={randomFighter.emblem}
@@ -226,6 +225,7 @@ const SmashRoster = () => {
                 </div>
             </div>
         </div>
+
         {/* CharSelectScreen */}
         <h2 className="currentroster-title" id='current-roster-id'>Current Roster</h2>
 

@@ -1,3 +1,27 @@
+
+
+.loading-box {
+    position: absolute;
+    display: block;
+    background: 'white';
+    height: '500px';
+    width: '350px';
+    z-index: 6;
+    /* filter: blur(10px); */
+}
+
+@keyframes pulse {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
 /* Random Container */
 .random-selection-container {
     width: 100%;
@@ -180,6 +204,7 @@
     width: 100% auto;
     z-index: 3;
     color: #FFFFFFDE;
+    text-shadow: #424242 1px 0 10px;
 }
 
 .player-fighter-container {
@@ -198,6 +223,7 @@
     font-size: 1.6rem;
     z-index: 3;
     color: #FFFFFFDE;
+    text-shadow: #424242 1px 0 10px;
 }
 
 .player-fighter-icon {
