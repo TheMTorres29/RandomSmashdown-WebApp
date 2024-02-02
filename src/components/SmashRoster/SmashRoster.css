@@ -410,19 +410,19 @@
         height: 80%;
         left: 0%;
         top: 10%;
-        animation: mobileFade 0.5s;
+        animation: mobileFade 1s;
     }
 
     .fighter-emblem {
         right: 0%;
-        animation: mobileFade 0.5s;
+        animation: mobileFade 1s;
     }
 
     .fighter-ink-background {
         left: 0%;
         top: 15%;
         height: 60%;
-        animation: mobileFade 0.5s;
+        animation: mobileFade 1s;
     }
 
     .refresh-btn {
