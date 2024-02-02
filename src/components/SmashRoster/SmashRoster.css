@@ -15,7 +15,7 @@
     z-index: 0;
     opacity: 100%;
     animation-timing-function: linear;
-    transition: ease-in-out 0.5s;
+    transition: ease-in 0.5s;
 }
 
 .fighter-portrait {
@@ -73,7 +73,7 @@
     width: 45px;
     height: 45px;
     right: 10px;
-    top: 90px;
+    top: 10%;
     padding: 0;
     border-radius: 50%;
     background-color: #010101;
@@ -356,6 +356,10 @@
     .fighter-emblem {
         right: 4%;
     }
+
+    .refresh-btn {
+        top: 14%;
+    }
 }
 @media screen and (max-width: 960px) {
     .qmark {
@@ -390,6 +394,10 @@
         left: 0%;
         height: 90%;
     }
+
+    .refresh-btn {
+        top: 17%;
+    }
 }
 @media screen and (max-width: 768px) {
     .player-fighter-name {
@@ -411,13 +419,11 @@
         left: 0%;
         top: 10%;
         transition: ease 1s;
-
     }
 
     .fighter-emblem {
         right: 0%;
         transition: ease 1s;
-
     }
 
     .fighter-ink-background {
@@ -425,7 +431,12 @@
         top: 15%;
         height: 60%;
         transition: ease 1s;
+    }
 
+    .refresh-btn {
+        width: 36px;
+        height: 36px;
+        top: 16%;
     }
 }
 @media screen and (max-width: 500px) {
@@ -447,9 +458,7 @@
     }
 
     .refresh-btn {
-        top: 50px;
-        width: 36px;
-        height: 36px;
+
     }
 
     .refresh-container {
