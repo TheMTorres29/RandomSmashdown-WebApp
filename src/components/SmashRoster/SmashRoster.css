@@ -14,7 +14,7 @@
     margin: 0 auto;
     z-index: 0;
     opacity: 100%;
-    /* animation-timing-function: linear; */
+    animation-timing-function: linear;
     /* transition: ease-in 0.5s; */
 }
 
@@ -72,7 +72,7 @@
     width: 45px;
     height: 45px;
     right: 10px;
-    top: 10%;
+    top: 80px;
     padding: 0;
     border-radius: 50%;
     background-color: #010101;
@@ -355,10 +355,6 @@
     .fighter-emblem {
         right: 4%;
     }
-
-    .refresh-btn {
-        top: 14%;
-    }
 }
 @media screen and (max-width: 960px) {
     .qmark {
@@ -395,7 +391,7 @@
     }
 
     .refresh-btn {
-        top: 17%;
+        top: 115px;
     }
 }
 @media screen and (max-width: 768px) {
@@ -432,7 +428,7 @@
     .refresh-btn {
         width: 36px;
         height: 36px;
-        top: 16%;
+        top: 100px;
     }
 }
 @media screen and (max-width: 500px) {
@@ -454,7 +450,7 @@
     }
 
     .refresh-btn {
-
+        top: 100px;
     }
 
     .refresh-container {
