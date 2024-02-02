@@ -14,8 +14,7 @@
     margin: 0 auto;
     z-index: 0;
     opacity: 100%;
-    animation-timing-function: linear;
-    /* transition: ease-in 0.5s; */
+    transition: linear 0.5s;
 }
 
 .fighter-portrait {
