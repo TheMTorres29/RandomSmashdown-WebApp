@@ -4,7 +4,7 @@ import CSSIcon from '../CSSIcon/CSSIcon'
 import qmark from '../../assets/images/marioqmark.png'
 import miiLogo from '../../assets/images/miilogo.png'
 import refreshIcon from '../../assets/images/refresh-icon.png'
-import ink1 from '../../assets/images/ink-splatter-1.png'
+import inksplatImg from '../../assets/images/ink-splatter-1.png'
 
 const SmashRoster = () => {
     //  Fighter List
@@ -102,10 +102,8 @@ const SmashRoster = () => {
     const [fighterHistory, setFighterHistory] = useState([])
     const [noMiis, setNoMiis] = useState(false)
     const [isHovering, setIsHovering] = useState(false)
-    const [slide, setSlide] = useState(0)
     const [fighterEmblem, setFighterEmblem] = useState(0)
     const [fighterBgColor, setFighterBgColor] = useState(0)
-    const [inkSplat, setInkSplat] = useState(0)
     
     const handleMouseOver = () => {
         setIsHovering(true);
@@ -116,18 +114,16 @@ const SmashRoster = () => {
     };
 
     const GetRandomFighter = () => {
-        // testBlurLoad()
         let selectedRandomFighter = fighters[Math.floor(Math.random() * fighters.length)]
+
         // console.log(selectedRandomFighter)
         setRandomFighter(selectedRandomFighter)
-        setInkSplat(ink1)
 
         // Fighter Background Slide-In
         document.getElementById("fighter-background-id").style.display = 'block';
         document.getElementById("random-selection-id").style.outline='solid 3px white';
         setFighterEmblem(selectedRandomFighter.emblem)
         setFighterBgColor(selectedRandomFighter.bg)
-        setSlide(1)
 
         // Delete Fighter from list
         let tmpList = fighters;
@@ -203,12 +199,12 @@ const SmashRoster = () => {
             {/* Fighter Background */}
             <div className="fighter-background-container" id='fighter-background-id'>
 
-                <img className='fighter-portrait' id='fighter-portrait-id' src={randomFighter.portrait} alt='fp' key={randomFighter.portrait}
-                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' role='presentation' decoding='async' fetchpriority='high' />
-                <img className='fighter-ink-background' id='ink-background-id' src={inkSplat} alt='' 
-                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' role='presentation'/>
-                <img className='fighter-emblem' id='fighter-emblem-id' src={fighterEmblem} alt='' key={randomFighter.emblem}
-                    slide={slide} onAnimationEnd={() => setSlide(0)} loading='lazy' role='presentation'/>
+                <img loading='lazy' className='fighter-portrait' id='fighter-portrait-id' src={randomFighter.portrait} alt='fp' key={randomFighter.portrait}
+                        role='presentation' decoding='async' fetchpriority='high' />
+                <img loading='lazy' className='fighter-ink-background' id='ink-background-id' src={inksplatImg} alt='' 
+                        role='presentation' />
+                <img loading='lazy' className='fighter-emblem' id='fighter-emblem-id' src={fighterEmblem} alt='' key={randomFighter.emblem}
+                        role='presentation' />
             </div>
             {/* Random Button */}
             <div className="random-btn-container">
@@ -274,7 +270,7 @@ const SmashRoster = () => {
             <div className="fighterhistory-icon-container">
                 {fighterHistory.slice(1).map((fighter) => {
                     return (
-                        <img src={fighter.icon} alt='' className='fighterhistory-icon' />
+                        <img src={fighter.icon} alt='' key={fighter.icon} className='fighterhistory-icon' />
                     )
                 })}
             </div>

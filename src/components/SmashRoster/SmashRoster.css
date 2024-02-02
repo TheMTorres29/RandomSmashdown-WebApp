@@ -1,31 +1,8 @@
-
-
-.loading-box {
-    position: absolute;
-    display: block;
-    background: 'white';
-    height: '500px';
-    width: '350px';
-    z-index: 6;
-    /* filter: blur(10px); */
-}
-
-@keyframes pulse {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0.1;
-    }
-    100% {
-      opacity: 0;
-    }
-}
-
 /* Random Container */
 .random-selection-container {
     width: 100%;
     position: relative;
+    overflow-x: hidden;
 }
 
 /* Fighter Background Container*/
@@ -38,45 +15,31 @@
     z-index: 0;
     opacity: 100%;
     animation-timing-function: linear;
-    transition: ease 0.5s;
-    /* outline: solid 5px purple; */
+    transition: ease-in-out 0.5s;
 }
 
 .fighter-portrait {
     height: 100%;
-    /* outline: 1px solid green; */
     position: absolute;
     left: 20%;
     z-index: 1;
-}
-
-.fighter-portrait[slide='1'] {
     animation: slideBy 0.5s;
 }
 
 .fighter-emblem {
     height: 100%;
-    /* outline: 1px solid orange; */
     position: absolute;
     right: 16%;
     z-index: 1;
-}
-
-.fighter-emblem[slide='1'] {
     animation: slideBy 0.5s;
 }
 
 .fighter-ink-background {
     height: 100%;
-    /* outline: 1px solid yellow; */
     left: 10%;
     position: absolute;
     z-index: 0;
-}
-
-.fighter-ink-background[slide='1'] {
     animation: slideBy 0.5s;
-    display: block;
 }
 
 @keyframes slideBy {
@@ -87,7 +50,7 @@
     }
 
     80% {
-      opacity: 60%;
+      opacity: 50%;
     }
 
     100% {
@@ -109,7 +72,7 @@
     width: 45px;
     height: 45px;
     right: 10px;
-    top: 70px;
+    top: 90px;
     padding: 0;
     border-radius: 50%;
     background-color: #010101;
