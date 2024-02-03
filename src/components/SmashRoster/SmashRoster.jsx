@@ -5,6 +5,9 @@ import qmark from '../../assets/images/marioqmark.png'
 import miiLogo from '../../assets/images/miilogo.png'
 import refreshIcon from '../../assets/images/refresh-icon.png'
 import inksplatImg from '../../assets/images/ink-splatter-1.png'
+import mb from '../../assets/images/MiiBrawler.png'
+import ms from '../../assets/images/MiiSwordfighter.png'
+import mg from '../../assets/images/MiiGunner.png'
 
 const SmashRoster = () => {
     //  Fighter List
@@ -81,9 +84,9 @@ const SmashRoster = () => {
             {id:69,name:'King K. Rool',icon:'https://www.ssbwiki.com/images/d/de/KingKRoolHeadSSBU.png', portrait:'https://www.smashbros.com/assets_v2/img/fighter/king_k_rool/main.png', bg:'#65873B', emblem:'https://www.ssbwiki.com/images/c/c2/DKSymbol.svg'},
             {id:70,name:'Isabelle',icon:'https://www.ssbwiki.com/images/2/2f/IsabelleHeadSSBU.png', portrait:'https://www.smashbros.com/assets_v2/img/fighter/isabelle/main.png', bg:'#C4D37E', emblem:'https://www.ssbwiki.com/images/e/e9/AnimalCrossingSymbol.svg'},
             {id:71,name:'Incineroar',icon:'https://www.ssbwiki.com/images/5/50/IncineroarHeadSSBU.png', portrait:'https://www.smashbros.com/assets_v2/img/fighter/incineroar/main.png', bg:'#FFD902', emblem:'https://www.ssbwiki.com/images/c/ca/PokemonSymbol.svg'},
-            {id:72,name:'Mii Brawler',icon:'https://www.ssbwiki.com/images/d/d8/MiiBrawlerHeadSSBU.png', portrait:'https://ssb.wiki.gallery/images/e/e4/Mii_Brawler_SSBU.png', bg:'#CCE5E5', emblem:'https://www.ssbwiki.com/images/c/c2/SmashBrosSymbol.svg'},
-            {id:73,name:'Mii Swordfighter',icon:'https://www.ssbwiki.com/images/e/ef/MiiSwordfighterHeadSSBU.png', portrait:'https://ssb.wiki.gallery/images/f/fa/Mii_Swordfighter_SSBU.png', bg:'#CCE5E5', emblem:'https://www.ssbwiki.com/images/c/c2/SmashBrosSymbol.svg'},
-            {id:74,name:'Mii Gunner',icon:'https://www.ssbwiki.com/images/3/3d/MiiGunnerHeadSSBU.png', portrait:'https://ssb.wiki.gallery/images/e/e5/Mii_Gunner_SSBU.png', bg:'#CCE5E5', emblem:'https://www.ssbwiki.com/images/c/c2/SmashBrosSymbol.svg'},
+            {id:72,name:'Mii Brawler',icon:'https://www.ssbwiki.com/images/d/d8/MiiBrawlerHeadSSBU.png', portrait:mb, bg:'#CCE5E5', emblem:'https://www.ssbwiki.com/images/c/c2/SmashBrosSymbol.svg'},
+            {id:73,name:'Mii Swordfighter',icon:'https://www.ssbwiki.com/images/e/ef/MiiSwordfighterHeadSSBU.png', portrait:ms, bg:'#CCE5E5', emblem:'https://www.ssbwiki.com/images/c/c2/SmashBrosSymbol.svg'},
+            {id:74,name:'Mii Gunner',icon:'https://www.ssbwiki.com/images/3/3d/MiiGunnerHeadSSBU.png', portrait:mg, bg:'#CCE5E5', emblem:'https://www.ssbwiki.com/images/c/c2/SmashBrosSymbol.svg'},
             {id:75,name:'Piranha Plant',icon:'https://www.ssbwiki.com/images/3/38/PiranhaPlantHeadSSBU.png', portrait:'https://www.smashbros.com/assets_v2/img/fighter/piranha_plant/main.png', bg:'#00aa82', emblem:'https://www.ssbwiki.com/images/3/30/MarioSymbol.svg'},
             {id:76,name:'Joker',icon:'https://www.ssbwiki.com/images/2/25/JokerHeadSSBU.png', portrait:'https://www.smashbros.com/assets_v2/img/fighter/joker/main.png', bg:'#B41201', emblem:'https://www.ssbwiki.com/images/b/b1/PersonaSymbol.svg'},
             {id:77,name:'Hero',icon:'https://www.ssbwiki.com/images/3/3d/HeroHeadSSBU.png', portrait:'https://www.smashbros.com/assets_v2/img/fighter/dq_hero/main.png', bg:'#CCB34A', emblem:'https://www.ssbwiki.com/images/a/a6/DragonQuestSymbol.svg'},
@@ -116,7 +119,6 @@ const SmashRoster = () => {
 
     const GetRandomFighter = () => {
         let selectedRandomFighter
-        
         do {
             selectedRandomFighter = fighters[Math.floor(Math.random() * fighters.length)]
         } while (fighters.length > 1 && randomFighter == selectedRandomFighter)
