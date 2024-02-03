@@ -102,6 +102,7 @@ const SmashRoster = () => {
     const [fighterHistory, setFighterHistory] = useState([])
     const [noMiis, setNoMiis] = useState(false)
     const [isHovering, setIsHovering] = useState(false)
+    const [loaded, setLoaded] = useState(false)
     const [fighterEmblem, setFighterEmblem] = useState(0)
     const [fighterBgColor, setFighterBgColor] = useState(0)
     
@@ -114,12 +115,16 @@ const SmashRoster = () => {
     };
 
     const GetRandomFighter = () => {
-        let selectedRandomFighter = fighters[Math.floor(Math.random() * fighters.length)]
+        let selectedRandomFighter
+        
+        do {
+            selectedRandomFighter = fighters[Math.floor(Math.random() * fighters.length)]
+        } while (fighters.length > 1 && randomFighter == selectedRandomFighter)
 
-        // console.log(selectedRandomFighter)
         setRandomFighter(selectedRandomFighter)
 
-        // Fighter Background Slide-In
+        // Show Fighter Background
+        setLoaded(false)
         document.getElementById("fighter-background-id").style.display = 'block';
         document.getElementById("random-selection-id").style.outline='solid 3px white';
         setFighterEmblem(selectedRandomFighter.emblem)
@@ -127,7 +132,7 @@ const SmashRoster = () => {
 
         // Delete Fighter from list
         let tmpList = fighters;
-        tmpList = (tmpList => tmpList.filter(fighters => fighters !== randomFighter))
+        tmpList = (tmpList => tmpList.filter(fighters => fighters !== selectedRandomFighter))
         setFighters(tmpList)
 
         // Add to History
@@ -159,7 +164,6 @@ const SmashRoster = () => {
             while (i < miiFighterList.length) {
                 let fighterName = miiFighterList[i].name
                 if (fighterName.startsWith("Mii ")) {
-                    // console.log("Splicing: " + fighterName)
                     miiFighterList.splice(i, 1)
                     i--
                 }
@@ -180,7 +184,8 @@ const SmashRoster = () => {
 
     useEffect(() => {
         document.getElementById("random-selection-id").style.backgroundColor = fighterBgColor
-    }, [fighterBgColor])
+        setLoaded(true)
+    }, [fighterBgColor, loaded, fighters])
 
   return (
     <>
@@ -199,11 +204,11 @@ const SmashRoster = () => {
             {/* Fighter Background */}
             <div className="fighter-background-container" id='fighter-background-id'>
 
-                <img loading='lazy' className='fighter-portrait' id='fighter-portrait-id' src={randomFighter.portrait} alt='fp' key={randomFighter.portrait}
+                <img loading='lazy' className={loaded ? 'fighter-portrait' : 'fighter-portrait-unloaded'} id='fighter-portrait-id' src={randomFighter.portrait} alt='fp' key={randomFighter.portrait}
                         role='presentation' decoding='async' fetchpriority='high' />
-                <img loading='lazy' className='fighter-ink-background' id='ink-background-id' src={inksplatImg} alt='' 
+                <img loading='lazy' className={loaded ? 'fighter-ink-background' : 'fighter-ink-background-unloaded'} id='ink-background-id' src={inksplatImg} alt='' 
                         role='presentation' />
-                <img loading='lazy' className='fighter-emblem' id='fighter-emblem-id' src={fighterEmblem} alt='' key={randomFighter.emblem}
+                <img loading='lazy' className={loaded ? 'fighter-emblem' : 'fighter-emblem-unloaded'} id='fighter-emblem-id' src={fighterEmblem} alt='' key={randomFighter.emblem}
                         role='presentation' />
             </div>
             {/* Random Button */}

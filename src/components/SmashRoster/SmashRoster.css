@@ -15,6 +15,7 @@
     z-index: 0;
     opacity: 100%;
     transition: linear 0.5s;
+    overflow: hidden;
 }
 
 .fighter-portrait {
@@ -23,6 +24,15 @@
     left: 20%;
     z-index: 1;
     animation: slideBy 0.5s;
+    opacity: 1;
+}
+
+.fighter-portrait-unloaded {
+    height: 100%;
+    position: absolute;
+    left: 20%;
+    z-index: 1;
+    opacity: 1;
 }
 
 .fighter-emblem {
@@ -31,6 +41,11 @@
     right: 16%;
     z-index: 1;
     animation: slideBy 0.5s;
+    opacity: 1;
+}
+
+.fighter-emblem-unloaded {
+    opacity: 0;
 }
 
 .fighter-ink-background {
@@ -39,21 +54,17 @@
     position: absolute;
     z-index: 0;
     animation: slideBy 0.5s;
+    opacity: 1;
+}
+
+.fighter-ink-background-unloaded {
+    opacity: 0;
 }
 
 @keyframes slideBy {
     0% {
       overflow-x: hidden;
-      opacity: 0%;
       transform: translateX(150%);
-    }
-
-    80% {
-      opacity: 50%;
-    }
-
-    100% {
-      opacity: 100%;
     }
 }
 
@@ -324,17 +335,6 @@
     width: 2.5%;
 }
 
-@keyframes mobileFade {
-    0% {
-      
-      opacity: 0%;
-    }
-
-    100% {
-      opacity: 100%;
-    }
-}
-
 /* Screen Size Scaling */
 @media screen and (max-width: 1200px) {
     .player-fighter-name {
@@ -406,23 +406,43 @@
     .fighterhistory-icon {
         width: 5%;
     }
+
     .fighter-portrait {
         height: 80%;
         left: 0%;
         top: 10%;
-        animation: mobileFade 1s;
+        opacity: 1;
+        animation: none;
+        transition: linear .3s;
+    }
+    
+    .fighter-portrait-unloaded {
+        opacity: 0;
+        left: 0%;
+        height: 80%;
     }
 
     .fighter-emblem {
         right: 0%;
-        animation: mobileFade 1s;
+        opacity: 1;
+        animation: none;
+        transition: linear .3s;
+    }
+    
+    .fighter-emblem-unloaded {
+        opacity: 0;
     }
 
     .fighter-ink-background {
         left: 0%;
         top: 15%;
         height: 60%;
-        animation: mobileFade 1s;
+        opacity: 1;
+        animation: none;
+    }
+
+    .fighter-ink-background-unloaded {
+        opacity: 0;
     }
 
     .refresh-btn {
@@ -477,6 +497,12 @@
         height: 70%;
         left: 0%;
         top: 25%;
+    }
+
+    .fighter-portrait-unloaded {
+        opacity: 0;
+        left: 0%;
+        height: 70%;
     }
 
     .fighter-emblem {
