@@ -9,6 +9,14 @@ import mb from '../../assets/images/MiiBrawler.png'
 import ms from '../../assets/images/MiiSwordfighter.png'
 import mg from '../../assets/images/MiiGunner.png'
 
+const PlayerCountIcon = ({ plus }) => (
+    <svg viewBox="0 0 48 48" className="player-count-icon" aria-hidden="true" fill="none"
+         stroke="currentColor" strokeWidth="3" strokeLinecap="square" strokeLinejoin="miter">
+        <rect x="3" y="3" width="42" height="42" />
+        <path d={plus ? 'M24 12V36M12 24H36' : 'M12 24H36'} />
+    </svg>
+)
+
 const SmashRoster = () => {
     //  Fighter List
     const [fighters, setFighters] = useState(
@@ -108,22 +116,92 @@ const SmashRoster = () => {
     const [loaded, setLoaded] = useState(false)
     const [fighterEmblem, setFighterEmblem] = useState(0)
     const [fighterBgColor, setFighterBgColor] = useState(0)
-    
+    // NOTE: Multiplayer - extra random slots (P2-P4). P1 is still randomFighter.
+    const [extraFighters, setExtraFighters] = useState([])
+    const MAX_PLAYERS = 4
+    const isMultiplayer = extraFighters.length > 0
+    const players = [randomFighter, ...extraFighters]
+
+
+    // NOTE: Multiplayer background is a hard-stop gradient: one solid color per slot, separated by a 2px white line
+    // that matches the player container borders.
+    const bgColors = players.map(p => p?.bg).filter(Boolean)
+    const bgStep = 100 / bgColors.length
+    const bgGradient = bgColors.length > 1
+        ? `linear-gradient(to right, ${bgColors.map((c, i) => {
+            const start = i === 0 ? '0%' : `calc(${i * bgStep}% + 1px)`
+            const end = i === bgColors.length - 1 ? '100%' : `calc(${(i + 1) * bgStep}% - 1px)`
+            const line = i === bgColors.length - 1 ? '' : `, #fff ${end}, #fff calc(${(i + 1) * bgStep}% + 1px)`
+            return `${c} ${start}, ${c} ${end}${line}`
+        }).join(', ')})`
+        : fighterBgColor
+
+    // NOTE: Moved the 'roster complete' UI changes
+    const showComplete = () => {
+        document.getElementById("random-btn-id").style.visibility='hidden';
+        document.getElementById("add-player-btn-id").style.visibility='hidden';
+        document.getElementById("remove-player-btn-id").style.visibility='hidden';
+        document.getElementById("current-roster-id").innerText='Complete!';
+        document.getElementById("smashroster-id").style.visibility='hidden';
+        document.getElementById("mii-btn-id").disabled=true;
+    }
+
+    // NOTE: - button. Removes the last extra slot and returns its fighter to the roster.
+    const RemovePlayer = () => {
+        if (!isMultiplayer) return
+        const removed = extraFighters[extraFighters.length - 1]
+        setExtraFighters(extraFighters.slice(0, -1))
+        setFighters([...fighters, removed])
+    }
+
+    // NOTE: + button. Draws one more random fighter into a new slot and removes it from the roster.
+    const AddPlayer = () => {
+        if (players.length >= MAX_PLAYERS || fighters.length < 1 || !randomFighter) return
+        const picked = fighters[Math.floor(Math.random() * fighters.length)]
+        setExtraFighters([...extraFighters, picked])
+        setFighters(fighters.filter(f => f !== picked))
+        if (fighters.length === 1) showComplete()
+    }
+
+    // NOTE: Drag and drop - dropping a roster icon on a slot swaps it with that slot's fighter.
+    const [dragOverSlot, setDragOverSlot] = useState(null)
+    const SwapFighter = (slot, fighterId) => {
+        setDragOverSlot(null)
+        const incoming = fighters.find(f => f.id === fighterId)
+        const outgoing = players[slot]
+        if (!incoming || !outgoing) return // ignore until the first roll
+
+        if (slot === 0) {
+            setRandomFighter(incoming)
+            setFighterBgColor(incoming.bg)
+            setFighterEmblem(incoming.emblem)
+            setLoaded(false)
+        } else {
+            setExtraFighters(extraFighters.map((f, idx) => idx === slot - 1 ? incoming : f))
+        }
+        setFighters([...fighters.filter(f => f !== incoming), outgoing])
+    }
+
     const handleMouseOver = () => {
         setIsHovering(true);
     };
-    
+
     const handleMouseOut = () => {
         setIsHovering(false);
     };
 
     const GetRandomFighter = () => {
-        let selectedRandomFighter
-        do {
-            selectedRandomFighter = fighters[Math.floor(Math.random() * fighters.length)]
-        } while (fighters.length > 1 && randomFighter == selectedRandomFighter)
+        // NOTE: Draw one distinct fighter per active slot. Picked fighters were already removed from
+        // the roster, so the old "re-roll if same as last" loop is no longer needed.
+        const pool = [...fighters]
+        const picks = []
+        for (let i = 0; i < players.length && pool.length > 0; i++) {
+            picks.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0])
+        }
+        const selectedRandomFighter = picks[0]
 
         setRandomFighter(selectedRandomFighter)
+        setExtraFighters(picks.slice(1))
 
         // Show Fighter Background
         setLoaded(false)
@@ -133,33 +211,25 @@ const SmashRoster = () => {
         setFighterBgColor(selectedRandomFighter.bg)
 
         // Delete Fighter from list
-        let tmpList = fighters;
-        tmpList = (tmpList => tmpList.filter(fighters => fighters !== selectedRandomFighter))
-        setFighters(tmpList)
+        setFighters(pool)
 
         // Add to History
         let tmpHistory = fighterHistory;
-        tmpHistory.push(randomFighter)
+        tmpHistory.push(...players)
         function removeDupes(data) {
             return [...new Set(data)]
         }
         setFighterHistory(removeDupes(tmpHistory))
 
-        // Hide Random Button when FighterList length = 1
-        let len = fighters.length
-        if (len == 1) {
-            document.getElementById("random-btn-id").style.visibility='hidden';
-            document.getElementById("current-roster-id").innerText='Complete!';
-            document.getElementById("smashroster-id").style.visibility='hidden';
-            document.getElementById("mii-btn-id").disabled=true;
-        }
+        // Hide Random Button when FighterList is empty
+        if (pool.length === 0) showComplete()
     }
 
     const iHateMiis = () => {
         let miiFighterList = fighters
         let miisOff = noMiis
         let i = 0
-        
+
 
         if (noMiis == false) {
             console.log("Miis Off")
@@ -185,9 +255,9 @@ const SmashRoster = () => {
     }
 
     useEffect(() => {
-        document.getElementById("random-selection-id").style.backgroundColor = fighterBgColor
+        document.getElementById("random-selection-id").style.background = bgGradient
         setLoaded(true)
-    }, [fighterBgColor, loaded, fighters])
+    }, [fighterBgColor, loaded, fighters, bgGradient])
 
   return (
     <>
@@ -215,17 +285,44 @@ const SmashRoster = () => {
             </div>
             {/* Random Button */}
             <div className="random-btn-container">
+                {/* NOTE: - / + control the number of players (1-4) */}
+                <button className='player-count-btn' id='remove-player-btn-id' onClick={RemovePlayer}
+                        disabled={!isMultiplayer} title='Remove player' aria-label='Remove player'>
+                    <PlayerCountIcon plus={false} />
+                </button>
                 <button className='random-btn' id='random-btn-id' onClick={GetRandomFighter}>
                     <img src={qmark} alt="" className='qmark'/>
                 </button>
+                <button className='player-count-btn' id='add-player-btn-id' onClick={AddPlayer}
+                        disabled={!randomFighter || players.length >= MAX_PLAYERS || fighters.length < 1}
+                        title='Add player' aria-label='Add player'>
+                    <PlayerCountIcon plus={true} />
+                </button>
             </div>
             {/* Random Player */}
-            <div className="player-container">
-                <h2 className="player-title">Fighter</h2>
-                <div className="player-fighter-container">
-                    <h2 className='player-fighter-name'>{randomFighter.name}</h2>
-                    <img src={randomFighter.icon} alt='' className='player-fighter-icon'/>
-                </div>
+            <div className={isMultiplayer ? ("players-row multiplayer players-" + players.length) : "players-row"} style={{ '--player-count': players.length }}>
+                {players.map((player, i) => (
+                    <div className={dragOverSlot === i ? "player-slot drag-over" : "player-slot"} key={i}
+                         onDragOver={(e) => { e.preventDefault(); setDragOverSlot(i) }}
+                         onDragLeave={() => setDragOverSlot(null)}
+                         onDrop={(e) => { e.preventDefault(); SwapFighter(i, Number(e.dataTransfer.getData('text/plain'))) }}
+                         style={{ '--slot-bg': player.bg }}>
+                        {/* NOTE: Slot portrait only shown in multiplayer; key re-triggers the slide-in animation */}
+                        {isMultiplayer && (
+                            <div className='slot-art'>
+                                <img className='slot-ink' src={inksplatImg} alt='' role='presentation' />
+                                <img className='slot-portrait' src={player.portrait} alt='' key={player.portrait} role='presentation' />
+                            </div>
+                        )}
+                        <div className="player-container">
+                            <h2 className="player-title">{isMultiplayer ? `P${i + 1}` : 'Fighter'}</h2>
+                            <div className="player-fighter-container">
+                                <h2 className='player-fighter-name'>{player.name}</h2>
+                                <img src={player.icon} alt='' className='player-fighter-icon'/>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
 
@@ -255,7 +352,7 @@ const SmashRoster = () => {
                 {/* Roster Count */}
                 <h3 className='currentroster-count'>Remaining: {fighters.length}</h3>
             </div>
-            
+
         </div>
 
         {/* Smash CSS */}
@@ -264,6 +361,7 @@ const SmashRoster = () => {
                 return (
                     <CSSIcon
                         key = {fighter.id}
+                        id = {fighter.id}
                         name = {fighter.name}
                         icon = {fighter.icon}
                     />
@@ -287,3 +385,5 @@ const SmashRoster = () => {
 }
 
 export default SmashRoster
+
+
