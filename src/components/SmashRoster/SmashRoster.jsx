@@ -318,7 +318,7 @@ const SmashRoster = () => {
                             <h2 className="player-title">{isMultiplayer ? `P${i + 1}` : 'Fighter'}</h2>
                             <div className="player-fighter-container">
                                 <h2 className='player-fighter-name'>{player.name}</h2>
-                                <img src={player.icon} alt='' className='player-fighter-icon'/>
+                                {player.icon && <img src={player.icon} alt='' className='player-fighter-icon'/>}
                             </div>
                         </div>
                     </div>
